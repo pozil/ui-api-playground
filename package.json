@@ -1,0 +1,14 @@
+{
+    "name": "ui-api-playground",
+    "version": "1.0.0",
+    "private": true,
+    "description": "UI API Playground",
+    "scripts": {
+        "prettier": "prettier --write '**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,yaml,yml}'"
+    },
+    "author": "pozil",
+    "license": "CC0-1.0",
+    "devDependencies": {
+        "prettier": "^1.19.1"
+    }
+}

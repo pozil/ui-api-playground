@@ -1,0 +1,31 @@
+<template>
+    <c-formatted-error if:true={error} error={error}></c-formatted-error>
+
+    <!-- Documentation -->
+    <div class="slds-text-heading_medium slds-m-bottom_x-small">{name}</div>
+    <div class="slds-p-horizontal_small slds-m-bottom_medium">
+        <div class="slds-m-bottom_x-small">{description}</div>
+        <div><a noopener target="_blank" href={docUrl}>Documentation</a></div>
+    </div>
+
+    <!-- Request -->
+    <div class="slds-text-title_caps slds-m-bottom_small">Request</div>
+    <div class="slds-p-horizontal_small slds-m-bottom_medium">
+        <slot onrequest={handleRequest} onresponse={handleResponse}></slot>
+    </div>
+
+    <!-- Request spinner -->
+    <lightning-spinner
+        if:true={isLoading}
+        variant="brand"
+        alternative-text="Waiting for UI API response"
+    ></lightning-spinner>
+
+    <!-- Response -->
+    <div if:true={responseData}>
+        <div class="slds-text-title_caps slds-m-bottom_small">Response</div>
+        <div class="slds-p-horizontal_small">
+            <c-json-formatter value={responseData}></c-json-formatter>
+        </div>
+    </div>
+</template>

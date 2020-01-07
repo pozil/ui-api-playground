@@ -1,0 +1,28 @@
+<template>
+    <div class="slds-form">
+        <lightning-input
+            value={recordTypeId}
+            onchange={handleRecordTypeIdChange}
+            type="text"
+            label="Record Type Id"
+            field-level-help="Use the Object Info 'defaultRecordTypeId' property, which is returned from 'getObjectInfo' or 'getRecordUi'."
+            required
+        ></lightning-input>
+        <lightning-input
+            value={fieldApiName}
+            onchange={handleFieldApiNameChange}
+            type="text"
+            label="Field API Name"
+            field-level-help="Field API name prefixed with the object API name like 'Account.Rating'."
+            required
+        ></lightning-input>
+    </div>
+    <div class="slds-m-top_small slds-text-align_right">
+        <lightning-button
+            variant="brand"
+            label="Call UI API"
+            onclick={handleCallApi}
+            disabled={isCallApiButtonDisabled}
+        ></lightning-button>
+    </div>
+</template>

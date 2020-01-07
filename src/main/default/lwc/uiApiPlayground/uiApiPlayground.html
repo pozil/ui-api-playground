@@ -1,0 +1,44 @@
+<template>
+    <lightning-card title="UI API Playground">
+        <div class="slds-p-horizontal_small">
+            <lightning-tabset>
+                <lightning-tab label="getListUi">
+                    <c-api-endpoint
+                        name="getListUi"
+                        description="Use this wire adapter to get the records and metadata for a list view. Leave the 'List View API Name' field empty to retrieve all list views."
+                        doc-url-key="lwc.reference_get_list_ui"
+                    >
+                        <c-get-list-ui></c-get-list-ui>
+                    </c-api-endpoint>
+                </lightning-tab>
+                <lightning-tab label="getObjectInfo">
+                    <c-api-endpoint
+                        name="getObjectInfo"
+                        description="Use this wire adapter to get metadata about a specific object. The response includes metadata describing fields, child relationships, record type, and theme."
+                        doc-url-key="lwc.reference_wire_adapters_object_info"
+                    >
+                        <c-get-object-info></c-get-object-info>
+                    </c-api-endpoint>
+                </lightning-tab>
+                <lightning-tab label="getPicklistValues">
+                    <c-api-endpoint
+                        name="getPicklistValues"
+                        description="Use this wire adapter to get the picklist values for a specified field."
+                        doc-url-key="lwc.reference_wire_adapters_picklist_values"
+                    >
+                        <c-get-picklist-values></c-get-picklist-values>
+                    </c-api-endpoint>
+                </lightning-tab>
+                <lightning-tab label="getPicklistValuesByRecordType">
+                    <c-api-endpoint
+                        name="getPicklistValuesByRecordType"
+                        description="Use this wire adapter to get the values for every picklist of a specified record type."
+                        doc-url-key="lwc.reference_wire_adapters_picklist_values_record"
+                    >
+                        <c-get-picklist-values-by-record-type></c-get-picklist-values-by-record-type>
+                    </c-api-endpoint>
+                </lightning-tab>
+            </lightning-tabset>
+        </div>
+    </lightning-card>
+</template>

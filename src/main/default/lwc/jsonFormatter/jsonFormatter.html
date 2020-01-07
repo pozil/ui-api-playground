@@ -1,0 +1,14 @@
+<template>
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-size_1-of-2">
+            <div class="slds-text-title slds-m-bottom_small">Formatted</div>
+            <div class="slds-theme_shade">
+                <lightning-tree items={treeData}></lightning-tree>
+            </div>
+        </div>
+        <div class="slds-col slds-size_1-of-2">
+            <div class="slds-text-title slds-m-bottom_small">Raw</div>
+            <pre class="slds-theme_shade slds-m-none">{json}</pre>
+        </div>
+    </div>
+</template>
