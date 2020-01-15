@@ -1,17 +1,41 @@
 <template>
     <c-formatted-error if:true={error} error={error}></c-formatted-error>
 
-    <!-- Documentation -->
-    <div class="slds-text-heading_medium slds-m-bottom_x-small">{name}</div>
-    <div class="slds-p-horizontal_small slds-m-bottom_medium">
-        <div class="slds-m-bottom_x-small">{description}</div>
-        <div><a noopener target="_blank" href={docUrl}>Documentation</a></div>
-    </div>
+    <div class="slds-text-heading_medium slds-m-bottom_medium">{name}</div>
 
-    <!-- Request -->
-    <div class="slds-text-title_caps slds-m-bottom_small">Request</div>
-    <div class="slds-p-horizontal_small slds-m-bottom_medium">
-        <slot onrequest={handleRequest} onresponse={handleResponse}></slot>
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-size_1-of-2">
+            <!-- Request -->
+            <div class="slds-text-title_caps slds-m-bottom_small">Request</div>
+            <div class="slds-p-horizontal_small slds-m-bottom_medium">
+                <slot
+                    onrequest={handleRequest}
+                    onresponse={handleResponse}
+                ></slot>
+            </div>
+        </div>
+        <div class="slds-col slds-size_1-of-2">
+            <!-- Documentation -->
+            <div class="slds-text-title_caps slds-m-bottom_small">About</div>
+            <div class="slds-p-horizontal_small slds-m-bottom_medium">
+                <div class="slds-m-bottom_x-small">{description}</div>
+
+                <div class="slds-media slds-media_center slds-media_small">
+                    <div class="slds-media__figure">
+                        <lightning-icon
+                            icon-name="utility:new_window"
+                            size="xx-small"
+                            alternative-text="Opens in new page"
+                        ></lightning-icon>
+                    </div>
+                    <div class="slds-media__body">
+                        <a noopener target="_blank" href={docUrl}
+                            >Documentation</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Request spinner -->
