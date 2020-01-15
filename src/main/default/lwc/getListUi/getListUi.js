@@ -28,7 +28,7 @@ export default class GetListUi extends LightningElement {
         this.listViewApiName = event.target.value;
     }
 
-    handleCallApi() {
+    handleSendRequest() {
         this.objectApiNameFinal = this.objectApiName;
         this.listViewApiNameFinal = this.listViewApiName;
         this.dispatchEvent(new CustomEvent('request', { bubbles: true }));

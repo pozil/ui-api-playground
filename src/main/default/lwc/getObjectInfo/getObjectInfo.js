@@ -21,7 +21,7 @@ export default class GetObjectInfo extends LightningElement {
         this.objectApiName = event.target.value;
     }
 
-    handleCallApi() {
+    handleSendRequest() {
         this.objectApiNameFinal = this.objectApiName;
         this.dispatchEvent(new CustomEvent('request', { bubbles: true }));
     }

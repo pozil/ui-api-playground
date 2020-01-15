@@ -28,7 +28,7 @@ export default class GetPicklistValuesByRecordType extends LightningElement {
         this.recordTypeId = event.target.value;
     }
 
-    handleCallApi() {
+    handleSendRequest() {
         this.recordTypeIdFinal = this.recordTypeId;
         this.objectApiNameFinal = this.objectApiName;
         this.dispatchEvent(new CustomEvent('request', { bubbles: true }));

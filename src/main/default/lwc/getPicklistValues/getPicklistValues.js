@@ -28,7 +28,7 @@ export default class GetPicklistValues extends LightningElement {
         this.fieldApiName = event.target.value;
     }
 
-    handleCallApi() {
+    handleSendRequest() {
         this.recordTypeIdFinal = this.recordTypeId;
         this.fieldApiNameFinal = this.fieldApiName;
         this.dispatchEvent(new CustomEvent('request', { bubbles: true }));
