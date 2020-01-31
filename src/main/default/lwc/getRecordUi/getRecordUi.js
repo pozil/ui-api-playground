@@ -3,12 +3,13 @@ import { getRecordUi } from 'lightning/uiRecordApi';
 
 export default class GetRecordUi extends LightningElement {
     recordIds = '001R000001RmPbSIAV';
-    recordIdsFinal;
     layoutTypes = 'Compact';
-    layoutTypesFinal;
     modes = 'View';
-    modesFinal;
     optionalFields;
+
+    recordIdsFinal;
+    layoutTypesFinal;
+    modesFinal;
     optionalFieldsFinal;
 
     @wire(getRecordUi, {

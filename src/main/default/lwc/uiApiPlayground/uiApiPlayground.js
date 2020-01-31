@@ -27,6 +27,9 @@ export default class UiApiPlayground extends LightningElement {
     get isGetPicklistValuesByRecordType() {
         return this.selectedEndpoint.name === 'getPicklistValuesByRecordType';
     }
+    get isGetRecord() {
+        return this.selectedEndpoint.name === 'getRecord';
+    }
     get isGetRecordCreateDefaults() {
         return this.selectedEndpoint.name === 'getRecordCreateDefaults';
     }

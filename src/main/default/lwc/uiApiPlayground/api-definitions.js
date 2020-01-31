@@ -37,6 +37,11 @@ const API_DEFINITIONS = [
         name: 'uiRecordApi',
         endpoints: [
             {
+                name: 'getRecord',
+                description: 'Use this wire adapter to get a record’s data.',
+                docUrlKey: 'lwc.reference_wire_adapters_record_ui'
+            },
+            {
                 name: 'getRecordCreateDefaults',
                 description:
                     'Use this wire adapter to get default information and data needed to create a record.',
@@ -46,7 +51,7 @@ const API_DEFINITIONS = [
                 name: 'getRecordUi',
                 description:
                     'Use this wire adapter to get layout information, metadata, and data to build UI for one or more records.',
-                docUrlKey: 'lwc.reference_wire_adapters_record_ui'
+                docUrlKey: 'lwc.reference_wire_adapters_record'
             }
         ]
     }
