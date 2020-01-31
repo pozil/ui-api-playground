@@ -1,53 +1,69 @@
 <template>
     <lightning-card title="UI API Playground">
         <div class="slds-p-horizontal_small">
-            <lightning-tabset>
-                <lightning-tab label="getListUi">
-                    <c-api-endpoint
-                        name="getListUi"
-                        description="Use this wire adapter to get the records and metadata for a list view. Leave the 'List View API Name' field empty to retrieve all list views."
-                        doc-url-key="lwc.reference_get_list_ui"
+            <!-- Menu -->
+            <lightning-button-group class="slds-m-bottom_large">
+                <template for:each={apiDefinitions} for:item="category">
+                    <lightning-button-menu
+                        key={category.name}
+                        label={category.name}
+                        onselect={handleMenuSelect}
                     >
-                        <c-get-list-ui></c-get-list-ui>
-                    </c-api-endpoint>
-                </lightning-tab>
-                <lightning-tab label="getObjectInfo">
-                    <c-api-endpoint
-                        name="getObjectInfo"
-                        description="Use this wire adapter to get metadata about a specific object. The response includes metadata describing fields, child relationships, record type, and theme."
-                        doc-url-key="lwc.reference_wire_adapters_object_info"
-                    >
-                        <c-get-object-info></c-get-object-info>
-                    </c-api-endpoint>
-                </lightning-tab>
-                <lightning-tab label="getPicklistValues">
-                    <c-api-endpoint
-                        name="getPicklistValues"
-                        description="Use this wire adapter to get the picklist values for a specified field."
-                        doc-url-key="lwc.reference_wire_adapters_picklist_values"
-                    >
-                        <c-get-picklist-values></c-get-picklist-values>
-                    </c-api-endpoint>
-                </lightning-tab>
-                <lightning-tab label="getPicklistValuesByRecordType">
-                    <c-api-endpoint
-                        name="getPicklistValuesByRecordType"
-                        description="Use this wire adapter to get the values for every picklist of a specified record type."
-                        doc-url-key="lwc.reference_wire_adapters_picklist_values_record"
-                    >
-                        <c-get-picklist-values-by-record-type></c-get-picklist-values-by-record-type>
-                    </c-api-endpoint>
-                </lightning-tab>
-                <lightning-tab label="getRecordCreateDefaults">
-                    <c-api-endpoint
-                        name="getRecordCreateDefaults"
-                        description="Use this wire adapter to get default information and data needed to create a record."
-                        doc-url-key="lwc.reference_wire_adapters_create_record_values"
-                    >
-                        <c-get-record-create-defaults></c-get-record-create-defaults>
-                    </c-api-endpoint>
-                </lightning-tab>
-            </lightning-tabset>
+                        <template
+                            for:each={category.endpoints}
+                            for:item="endpoint"
+                        >
+                            <lightning-menu-item
+                                key={endpoint.name}
+                                value={endpoint.name}
+                                label={endpoint.name}
+                                onclick={handleMenuClick}
+                            ></lightning-menu-item>
+                        </template>
+                    </lightning-button-menu>
+                </template>
+            </lightning-button-group>
+
+            <!-- Current endpoint -->
+            <template if:true={selectedEndpoint}>
+                <c-api-endpoint
+                    name={selectedEndpoint.fullname}
+                    description={selectedEndpoint.description}
+                    doc-url-key={selectedEndpoint.docUrlKey}
+                >
+                    <c-get-list-ui if:true={isGetListUi}></c-get-list-ui>
+                    <c-get-object-info
+                        if:true={isGetObjectInfo}
+                    ></c-get-object-info>
+                    <c-get-picklist-values
+                        if:true={isGetPicklistValues}
+                    ></c-get-picklist-values>
+                    <c-get-picklist-values-by-record-type
+                        if:true={isGetPicklistValuesByRecordType}
+                    ></c-get-picklist-values-by-record-type>
+                    <c-get-record-create-defaults
+                        if:true={isGetRecordCreateDefaults}
+                    ></c-get-record-create-defaults>
+                </c-api-endpoint>
+            </template>
+
+            <template if:false={selectedEndpoint}>
+                <div
+                    class="slds-illustration slds-illustration_large"
+                    aria-hidden="true"
+                >
+                    <div class="slds-text-color_weak slds-m-bottom_medium">
+                        <h3 class="slds-text-heading_medium">
+                            Select an endpoint from the menu.
+                        </h3>
+                    </div>
+                    <img
+                        src="/img/chatter/OpenRoad.svg"
+                        class="slds-illustration__svg"
+                        alt=""
+                    />
+                </div>
+            </template>
         </div>
     </lightning-card>
 </template>
