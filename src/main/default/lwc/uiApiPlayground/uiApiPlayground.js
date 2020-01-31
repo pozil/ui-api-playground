@@ -2,20 +2,19 @@ import { LightningElement } from 'lwc';
 import API_DEFINITIONS from './api-definitions.js';
 
 export default class UiApiPlayground extends LightningElement {
-    apiDefinitions = API_DEFINITIONS;
     selectedEndpoint;
 
     handleMenuSelect(event) {
         const { value } = event.detail;
-        this.selectedEndpoint = this.apiDefinitions
-            .reduce(
-                (accumulator, category) =>
-                    accumulator.concat(category.endpoints),
-                []
-            )
-            .find(item => item.name === value);
+        this.selectedEndpoint = API_DEFINITIONS.reduce(
+            (accumulator, category) => accumulator.concat(category.endpoints),
+            []
+        ).find(item => item.name === value);
     }
 
+    get apiDefinitions() {
+        return API_DEFINITIONS;
+    }
     get isGetListUi() {
         return this.selectedEndpoint.name === 'getListUi';
     }
@@ -30,5 +29,8 @@ export default class UiApiPlayground extends LightningElement {
     }
     get isGetRecordCreateDefaults() {
         return this.selectedEndpoint.name === 'getRecordCreateDefaults';
+    }
+    get isGetRecordUi() {
+        return this.selectedEndpoint.name === 'getRecordUi';
     }
 }

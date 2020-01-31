@@ -24,7 +24,7 @@
                 </template>
             </lightning-button-group>
 
-            <!-- Current endpoint -->
+            <!-- Currently selected endpoint -->
             <template if:true={selectedEndpoint}>
                 <c-api-endpoint
                     name={selectedEndpoint.fullname}
@@ -44,9 +44,11 @@
                     <c-get-record-create-defaults
                         if:true={isGetRecordCreateDefaults}
                     ></c-get-record-create-defaults>
+                    <c-get-record-ui if:true={isGetRecordUi}></c-get-record-ui>
                 </c-api-endpoint>
             </template>
 
+            <!-- No endpoint selected -->
             <template if:false={selectedEndpoint}>
                 <div
                     class="slds-illustration slds-illustration_large"

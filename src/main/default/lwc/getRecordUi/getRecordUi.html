@@ -1,0 +1,58 @@
+<template>
+    <div class="slds-form">
+        <div
+            class="slds-media slds-media_center slds-media_small slds-m-bottom_small"
+        >
+            <div class="slds-media__figure">
+                <lightning-icon
+                    icon-name="utility:info"
+                    size="xx-small"
+                    alternative-text="Info"
+                ></lightning-icon>
+            </div>
+            <div class="slds-media__body">
+                <p>
+                    All of the enpoint parameters accept multiple values but the
+                    Playground only supports one value per parameter.
+                </p>
+            </div>
+        </div>
+
+        <lightning-input
+            value={recordIds}
+            onchange={handleRecordIdsChange}
+            type="text"
+            label="Record Id"
+            required
+        ></lightning-input>
+        <lightning-combobox
+            label="Layout type"
+            value={layoutTypes}
+            options={layoutTypeOptions}
+            onchange={handleLayoutTypeChange}
+            required
+        ></lightning-combobox>
+        <lightning-combobox
+            label="Mode"
+            value={modes}
+            options={modeOptions}
+            onchange={handleModeChange}
+            required
+        ></lightning-combobox>
+        <lightning-input
+            value={optionalFields}
+            onchange={handleOptionalFieldChange}
+            type="text"
+            label="Optional field"
+            field-level-help="Field API name prefixed with the object API name like 'Account.Rating'."
+        ></lightning-input>
+    </div>
+    <div class="slds-m-top_small slds-text-align_right">
+        <lightning-button
+            variant="brand"
+            label="Send"
+            onclick={handleSendRequest}
+            disabled={isCallApiButtonDisabled}
+        ></lightning-button>
+    </div>
+</template>

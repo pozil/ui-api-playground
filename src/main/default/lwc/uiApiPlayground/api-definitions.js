@@ -41,6 +41,12 @@ const API_DEFINITIONS = [
                 description:
                     'Use this wire adapter to get default information and data needed to create a record.',
                 docUrlKey: 'lwc.reference_wire_adapters_create_record_values'
+            },
+            {
+                name: 'getRecordUi',
+                description:
+                    'Use this wire adapter to get layout information, metadata, and data to build UI for one or more records.',
+                docUrlKey: 'lwc.reference_wire_adapters_record_ui'
             }
         ]
     }
