@@ -43,7 +43,7 @@
                     onchange={handleFieldsChange}
                     type="text"
                     label="Fields"
-                    required
+                    required={isFieldVariant}
                     disabled={isModeAndLayoutVariant}
                     field-level-help="Field API name prefixed with the object API name like 'Account.Rating'."
                 ></lightning-input>
@@ -54,7 +54,7 @@
                     value={layoutTypes}
                     options={layoutTypeOptions}
                     onchange={handleLayoutTypeChange}
-                    required
+                    required={isModeAndLayoutVariant}
                     disabled={isFieldVariant}
                 ></lightning-combobox>
                 <lightning-combobox
@@ -62,7 +62,7 @@
                     value={modes}
                     options={modeOptions}
                     onchange={handleModeChange}
-                    required
+                    required={isModeAndLayoutVariant}
                     disabled={isFieldVariant}
                 ></lightning-combobox>
             </div>
