@@ -42,6 +42,11 @@ const API_DEFINITIONS = [
                 docUrlKey: 'lwc.reference_create_record'
             },
             {
+                name: 'deleteRecord',
+                description: 'Deletes a record.',
+                docUrlKey: 'lwc.reference_delete_record'
+            },
+            {
                 name: 'generateRecordInputForCreate',
                 description:
                     'Generates a representation of a record (Record Input) that can be used to create a record using createRecord(RecordInput). Passing in ObjectInfo filters the Record Input to only fields that are createable.',

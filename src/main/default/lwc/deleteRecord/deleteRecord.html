@@ -1,0 +1,19 @@
+<template>
+    <div class="slds-form">
+        <lightning-input
+            value={recordId}
+            onchange={handleRecordIdChange}
+            type="text"
+            label="Record Id"
+            required
+        ></lightning-input>
+    </div>
+    <div class="slds-m-top_small slds-text-align_right">
+        <lightning-button
+            variant="brand"
+            label="Send"
+            onclick={handleSendRequest}
+            disabled={isCallApiButtonDisabled}
+        ></lightning-button>
+    </div>
+</template>
