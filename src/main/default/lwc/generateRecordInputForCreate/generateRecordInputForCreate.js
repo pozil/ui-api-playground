@@ -52,7 +52,6 @@ export default class GenerateRecordInputForCreate extends LightningElement {
                 : undefined;
         generateRecordInputForCreate(record, objectInfo)
             .then(response => {
-                console.log('response');
                 this.dispatchEvent(
                     new CustomEvent('response', {
                         detail: response,
@@ -61,7 +60,6 @@ export default class GenerateRecordInputForCreate extends LightningElement {
                 );
             })
             .catch(error => {
-                console.log('error');
                 this.dispatchEvent(
                     new CustomEvent('response', {
                         detail: { error },
