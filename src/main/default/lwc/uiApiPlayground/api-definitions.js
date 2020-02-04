@@ -37,6 +37,17 @@ const API_DEFINITIONS = [
         name: 'uiRecordApi',
         endpoints: [
             {
+                name: 'createRecord',
+                description: 'Creates a record.',
+                docUrlKey: 'lwc.reference_create_record'
+            },
+            {
+                name: 'generateRecordInputForCreate',
+                description:
+                    'Generates a representation of a record (Record Input) that can be used to create a record using createRecord(RecordInput). Passing in ObjectInfo filters the Record Input to only fields that are createable.',
+                docUrlKey: 'lwc.reference_generate_record_input_create'
+            },
+            {
                 name: 'getRecord',
                 description: 'Use this wire adapter to get a record’s data.',
                 docUrlKey: 'lwc.reference_wire_adapters_record_ui'

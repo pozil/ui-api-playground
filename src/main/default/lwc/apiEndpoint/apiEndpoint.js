@@ -9,6 +9,12 @@ export default class ApiEndpoint extends LightningElement {
     responseData;
     error;
 
+    @api
+    reset() {
+        this.responseData = undefined;
+        this.error = undefined;
+    }
+
     handleRequest() {
         this.isLoading = true;
         this.responseData = undefined;
@@ -17,13 +23,15 @@ export default class ApiEndpoint extends LightningElement {
 
     handleResponse(event) {
         this.isLoading = false;
+        this.responseData = undefined;
+        this.error = undefined;
         const { data, error } = event.detail;
         if (data) {
             this.responseData = data;
         } else if (error) {
             this.error = error;
-        } else {
-            this.error = 'No data returned.';
+        } else if (event.detail) {
+            this.responseData = event.detail;
         }
     }
 

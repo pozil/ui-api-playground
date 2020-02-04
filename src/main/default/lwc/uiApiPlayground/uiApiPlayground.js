@@ -6,6 +6,10 @@ export default class UiApiPlayground extends LightningElement {
 
     handleMenuSelect(event) {
         const { value } = event.detail;
+        const endpointElement = this.template.querySelector('c-api-endpoint');
+        if (endpointElement) {
+            endpointElement.reset();
+        }
         this.selectedEndpoint = API_DEFINITIONS.reduce(
             (accumulator, category) => accumulator.concat(category.endpoints),
             []
@@ -26,6 +30,12 @@ export default class UiApiPlayground extends LightningElement {
     }
     get isGetPicklistValuesByRecordType() {
         return this.selectedEndpoint.name === 'getPicklistValuesByRecordType';
+    }
+    get isCreateRecord() {
+        return this.selectedEndpoint.name === 'createRecord';
+    }
+    get isGenerateRecordInputForCreate() {
+        return this.selectedEndpoint.name === 'generateRecordInputForCreate';
     }
     get isGetRecord() {
         return this.selectedEndpoint.name === 'getRecord';

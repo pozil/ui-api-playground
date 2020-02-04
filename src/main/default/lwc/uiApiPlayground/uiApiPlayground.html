@@ -41,6 +41,10 @@
                     <c-get-picklist-values-by-record-type
                         if:true={isGetPicklistValuesByRecordType}
                     ></c-get-picklist-values-by-record-type>
+                    <c-create-record if:true={isCreateRecord}></c-create-record>
+                    <c-generate-record-input-for-create
+                        if:true={isGenerateRecordInputForCreate}
+                    ></c-generate-record-input-for-create>
                     <c-get-record if:true={isGetRecord}></c-get-record>
                     <c-get-record-create-defaults
                         if:true={isGetRecordCreateDefaults}
