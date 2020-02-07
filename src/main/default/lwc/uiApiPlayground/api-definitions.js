@@ -42,6 +42,12 @@ const API_DEFINITIONS = [
                 docUrlKey: 'lwc.reference_create_record'
             },
             {
+                name: 'createRecordInputFilteredByEditedFields',
+                description:
+                    'Creates a RecordInput object with a list of fields that have been edited from their original values to pass in a call to updateRecord(recordInput).',
+                docUrlKey: 'lwc.reference_create_record_input_update'
+            },
+            {
                 name: 'deleteRecord',
                 description: 'Deletes a record.',
                 docUrlKey: 'lwc.reference_delete_record'

@@ -34,6 +34,12 @@ export default class UiApiPlayground extends LightningElement {
     get isCreateRecord() {
         return this.selectedEndpoint.name === 'createRecord';
     }
+    get isCreateRecordInputFilteredByEditedFields() {
+        return (
+            this.selectedEndpoint.name ===
+            'createRecordInputFilteredByEditedFields'
+        );
+    }
     get isDeleteRecord() {
         return this.selectedEndpoint.name === 'deleteRecord';
     }

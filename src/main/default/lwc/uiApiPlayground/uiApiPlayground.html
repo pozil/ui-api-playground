@@ -42,6 +42,9 @@
                         if:true={isGetPicklistValuesByRecordType}
                     ></c-get-picklist-values-by-record-type>
                     <c-create-record if:true={isCreateRecord}></c-create-record>
+                    <c-create-record-input-filtered-by-edited-fields
+                        if:true={isCreateRecordInputFilteredByEditedFields}
+                    ></c-create-record-input-filtered-by-edited-fields>
                     <c-delete-record if:true={isDeleteRecord}></c-delete-record>
                     <c-generate-record-input-for-create
                         if:true={isGenerateRecordInputForCreate}
