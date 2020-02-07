@@ -1,0 +1,25 @@
+<template>
+    <div class="slds-form">
+        <lightning-textarea
+            name="recordInput"
+            value={recordInput}
+            onchange={handleJsonInputChange}
+            label="Record Input"
+            required
+        ></lightning-textarea>
+        <lightning-textarea
+            name="clientOptions"
+            value={clientOptions}
+            onchange={handleJsonInputChange}
+            label="Client Options"
+        ></lightning-textarea>
+    </div>
+    <div class="slds-m-top_small slds-text-align_right">
+        <lightning-button
+            variant="brand"
+            label="Send"
+            onclick={handleSendRequest}
+            disabled={isCallApiButtonDisabled}
+        ></lightning-button>
+    </div>
+</template>

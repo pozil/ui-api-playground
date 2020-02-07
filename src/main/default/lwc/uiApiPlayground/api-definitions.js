@@ -68,6 +68,12 @@ const API_DEFINITIONS = [
                 description:
                     'Use this wire adapter to get layout information, metadata, and data to build UI for one or more records.',
                 docUrlKey: 'lwc.reference_wire_adapters_record'
+            },
+            {
+                name: 'updateRecord',
+                description:
+                    'Updates a record. Provide the record Id of the record to update in recordInput.',
+                docUrlKey: 'lwc.reference_update_record'
             }
         ]
     }

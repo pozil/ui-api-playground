@@ -49,4 +49,7 @@ export default class UiApiPlayground extends LightningElement {
     get isGetRecordUi() {
         return this.selectedEndpoint.name === 'getRecordUi';
     }
+    get isUpdateRecord() {
+        return this.selectedEndpoint.name === 'updateRecord';
+    }
 }
