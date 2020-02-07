@@ -59,6 +59,12 @@ const API_DEFINITIONS = [
                 docUrlKey: 'lwc.reference_generate_record_input_create'
             },
             {
+                name: 'generateRecordInputForUpdate',
+                description:
+                    'Generates a representation of a record (Record Input) that can be used to update a record using updateRecord(recordInput). Passing in ObjectInfo filters the Record Input to only fields that are updateable.',
+                docUrlKey: 'lwc.reference_generate_record_input_update'
+            },
+            {
                 name: 'getFieldValue',
                 description:
                     'Gets a field’s value from a record. Spanning fields are supported.',

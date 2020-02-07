@@ -1,0 +1,26 @@
+<template>
+    <div class="slds-form">
+        <lightning-textarea
+            name="record"
+            value={record}
+            onchange={handleJsonInputChange}
+            label="Record"
+            field-level-help="To get data to build the Record object, use the getRecord or getRecordUi wire adapters."
+            required
+        ></lightning-textarea>
+        <lightning-textarea
+            name="objectInfo"
+            value={objectInfo}
+            onchange={handleJsonInputChange}
+            label="Object Info"
+        ></lightning-textarea>
+    </div>
+    <div class="slds-m-top_small slds-text-align_right">
+        <lightning-button
+            variant="brand"
+            label="Send"
+            onclick={handleSendRequest}
+            disabled={isCallApiButtonDisabled}
+        ></lightning-button>
+    </div>
+</template>

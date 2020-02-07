@@ -46,6 +46,9 @@ export default class UiApiPlayground extends LightningElement {
     get isGenerateRecordInputForCreate() {
         return this.selectedEndpoint.name === 'generateRecordInputForCreate';
     }
+    get isGenerateRecordInputForUpdate() {
+        return this.selectedEndpoint.name === 'generateRecordInputForUpdate';
+    }
     get isGetFieldValue() {
         return this.selectedEndpoint.name === 'getFieldValue';
     }
