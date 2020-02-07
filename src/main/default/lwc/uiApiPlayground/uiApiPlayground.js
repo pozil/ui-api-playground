@@ -43,6 +43,9 @@ export default class UiApiPlayground extends LightningElement {
     get isGetFieldValue() {
         return this.selectedEndpoint.name === 'getFieldValue';
     }
+    get isGetFieldDisplayValue() {
+        return this.selectedEndpoint.name === 'getFieldDisplayValue';
+    }
     get isGetRecord() {
         return this.selectedEndpoint.name === 'getRecord';
     }

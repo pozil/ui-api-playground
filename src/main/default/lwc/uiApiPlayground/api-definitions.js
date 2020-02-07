@@ -54,8 +54,15 @@ const API_DEFINITIONS = [
             },
             {
                 name: 'getFieldValue',
-                description: 'Gets a field’s value from a record. Spanning fields are supported.',
+                description:
+                    'Gets a field’s value from a record. Spanning fields are supported.',
                 docUrlKey: 'lwc.reference_get_field_value'
+            },
+            {
+                name: 'getFieldDisplayValue',
+                description:
+                    'Gets the display value of a field. Spanning fields are supported.',
+                docUrlKey: 'lwc.reference_get_field_display_value'
             },
             {
                 name: 'getRecord',
