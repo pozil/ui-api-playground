@@ -8,7 +8,11 @@ export default class JsonFormatter extends LightningElement {
     @api
     set value(value) {
         this.rawValue = value;
-        this.treeData = this.formatObject(value);
+        if (typeof value === 'string') {
+            this.treeData = undefined;
+        } else {
+            this.treeData = this.formatObject(value);
+        }
         this.json = JSON.stringify(value, null, 2);
     }
 

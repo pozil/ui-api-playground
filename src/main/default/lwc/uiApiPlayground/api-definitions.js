@@ -53,6 +53,11 @@ const API_DEFINITIONS = [
                 docUrlKey: 'lwc.reference_generate_record_input_create'
             },
             {
+                name: 'getFieldValue',
+                description: 'Gets a field’s value from a record. Spanning fields are supported.',
+                docUrlKey: 'lwc.reference_get_field_value'
+            },
+            {
                 name: 'getRecord',
                 description: 'Use this wire adapter to get a record’s data.',
                 docUrlKey: 'lwc.reference_wire_adapters_record_ui'

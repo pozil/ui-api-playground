@@ -3,7 +3,7 @@ import { updateRecord } from 'lightning/uiRecordApi';
 
 const RECORD_INPUT = JSON.stringify({ fields: { Id: '', Name: '' } }, null, 4);
 
-export default class GenerateRecordInputForCreate extends LightningElement {
+export default class UpdateRecord extends LightningElement {
     recordInput = RECORD_INPUT;
     clientOptions;
     isValidJson = true;
