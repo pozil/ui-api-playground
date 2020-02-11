@@ -26,7 +26,7 @@ rem Check exit code
 if ["%errorlevel%"]==["0"] (
   echo Installation completed.
   @echo:
-  cmd.exe /c sfdx force:org:open -u %ORG_ALIAS%
+  cmd.exe /c sfdx force:org:open -p lightning/page/home -u %ORG_ALIAS%
 )
 
 :: ======== FN ======

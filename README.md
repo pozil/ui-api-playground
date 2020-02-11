@@ -1,6 +1,6 @@
 # UI API Playground
 
-This is a sample Lightning Web Component (LWC) sample that let's you explore the UI APIs and execute them.
+This is a sample Lightning Web Component (LWC) app that let's you explore the UI APIs and execute them.
 
 **Note:** this app only lists the UI API endpoints that are accessible with LWC.<br/>
 For a exhaustive list of endpoints, refer to the [documentation](https://developer.salesforce.com/docs/atlas.en-us.uiapi.meta/uiapi/ui_api_get_started.htm).
