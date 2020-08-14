@@ -47,7 +47,7 @@ export default class GetRecordUi extends LightningElement {
         );
     }
 
-    handleObjectApiNameChange(event) {
+    handleRecordIdChange(event) {
         this.recordId = event.target.value;
     }
 
