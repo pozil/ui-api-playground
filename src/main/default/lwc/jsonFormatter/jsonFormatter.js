@@ -1,17 +1,38 @@
 import { LightningElement, api, track } from 'lwc';
 
+const TREE_GRID_COLUMNS = [
+    {
+        type: 'text',
+        fieldName: 'label',
+        label: 'Node Name',
+        initialWidth: 300,
+    },
+    {
+        type: 'text',
+        fieldName: 'value',
+        label: 'Node Value',
+    }
+];
+
+let nextNodeId = 0;
+function getNewNodeId() {
+    nextNodeId++;
+    return nextNodeId;
+}
+
 export default class JsonFormatter extends LightningElement {
-    @track treeData;
     json;
     rawValue;
+    gridData;
+    gridColumns = TREE_GRID_COLUMNS;
 
     @api
     set value(value) {
         this.rawValue = value;
         if (typeof value === 'string') {
-            this.treeData = undefined;
+            this.gridData = undefined;
         } else {
-            this.treeData = this.formatObject(value);
+            this.gridData = this.formatObject(value);
         }
         this.json = JSON.stringify(value, null, 2);
     }
@@ -21,42 +42,45 @@ export default class JsonFormatter extends LightningElement {
     }
 
     formatObject(objectData) {
-        const treeData = [];
+        const gridData = [];
         // eslint-disable-next-line guard-for-in
         for (const key in objectData) {
-            treeData.push(this.formatTreeNode(key, objectData[key]));
+            gridData.push(this.formatTreeGridNode(key, objectData[key]));
         }
-        return treeData;
+        return gridData;
     }
 
-    formatTreeNode(key, value) {
+    formatTreeGridNode(key, value) {
         const node = {
+            id: getNewNodeId(),
             label: key,
-            name: key
+            value: ''
         };
         if (Array.isArray(value)) {
             if (value.length === 0) {
-                node.label += ' = []';
+                node.value = '[]';
             } else {
                 node.expanded = false;
-                node.label += ` (${value.length} item${
-                    value.length === 1 ? '' : 's'
-                })`;
-                node.items = this.formatObject(value);
+                node.value = `Array(${value.length})`;
+                node._children = this.formatObject(value);
             }
         } else if (value === null) {
-            node.label += ' = null';
+            node.value = 'null';
         } else {
             switch (typeof value) {
                 case 'object':
-                    node.expanded = false;
-                    node.items = this.formatObject(value);
+                    if (Object.keys(value).length === 0) {
+                        node.value = '{}';
+                    } else {
+                        node.expanded = false;
+                        node._children = this.formatObject(value);
+                    }
                     break;
                 case 'string':
-                    node.label += ` = "${value}"`;
+                    node.value = `"${value}"`;
                     break;
                 default:
-                    node.label += ` = ${value}`;
+                    node.value = `${value}`;
             }
         }
         return node;

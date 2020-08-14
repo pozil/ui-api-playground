@@ -1,10 +1,15 @@
 <template>
     <div class="slds-grid slds-gutters">
         <div class="slds-col slds-size_1-of-2">
-            <template if:true={treeData}>
+            <template if:true={gridData}>
                 <div class="slds-text-title slds-m-bottom_small">Formatted</div>
                 <div class="slds-theme_shade">
-                    <lightning-tree items={treeData}></lightning-tree>
+                    <lightning-tree-grid
+                        columns={gridColumns}
+                        data={gridData}
+                        key-field="id"
+                        hide-checkbox-column="true"
+                    ></lightning-tree-grid>
                 </div>
             </template>
         </div>
