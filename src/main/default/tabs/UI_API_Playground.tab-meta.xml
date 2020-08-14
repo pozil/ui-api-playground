@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Created by Lightning App Builder</description>
+    <flexiPage>UI_API_Playground</flexiPage>
+    <label>UI API Playground</label>
+    <motif>Custom46: Postage</motif>
+</CustomTab>

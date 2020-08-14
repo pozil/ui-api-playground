@@ -21,12 +21,17 @@ cmd.exe /c sfdx force:source:push -f -u %ORG_ALIAS%
 call :checkForError
 @echo:
 
+echo Assigning permissions...
+cmd.exe /c sfdx force:user:permset:assign -n UI_API_Playground -u %ORG_ALIAS%
+call :checkForError
+@echo:
+
 rem Check exit code
 @echo:
 if ["%errorlevel%"]==["0"] (
   echo Installation completed.
   @echo:
-  cmd.exe /c sfdx force:org:open -p lightning/page/home -u %ORG_ALIAS%
+  cmd.exe /c sfdx force:org:open -p lightning/n/UI_API_Playground -u %ORG_ALIAS%
 )
 
 :: ======== FN ======

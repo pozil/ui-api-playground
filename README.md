@@ -9,7 +9,7 @@ For the exhaustive list of REST endpoints, refer to [this documentation](https:/
 
 ## Installation
 
-1. Install the app by running this script:
+Install the app by running this script:
 
     **MacOS or Linux**
 
@@ -23,4 +23,4 @@ For the exhaustive list of REST endpoints, refer to [this documentation](https:/
     install-dev.bat
     ```
 
-2. Add the `UI API Playground` component to any home or app page using the Lightning App Builder.
+The script automatically opens the playground but you can find it later in the **UI API Playground** tab.

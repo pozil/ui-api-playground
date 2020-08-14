@@ -19,6 +19,10 @@ echo "" && \
 
 echo "Pushing source..." && \
 sfdx force:source:push -f -u $ORG_ALIAS && \
+echo "" && \
+
+echo "Assigning permissions..." && \
+sfdx force:user:permset:assign -n UI_API_Playground -u $ORG_ALIAS && \
 echo ""
 
 EXIT_CODE="$?"
@@ -28,7 +32,7 @@ echo ""
 if [ "$EXIT_CODE" -eq 0 ]; then
   echo "Installation completed."
   echo ""
-  sfdx force:org:open -p lightning/page/home -u $ORG_ALIAS
+  sfdx force:org:open -p lightning/n/UI_API_Playground -u $ORG_ALIAS
 else
     echo "Installation failed."
 fi
