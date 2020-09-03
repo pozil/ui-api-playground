@@ -5,12 +5,12 @@ const TREE_GRID_COLUMNS = [
         type: 'text',
         fieldName: 'label',
         label: 'Node Name',
-        initialWidth: 300,
+        initialWidth: 300
     },
     {
         type: 'text',
         fieldName: 'value',
-        label: 'Node Value',
+        label: 'Node Value'
     }
 ];
 

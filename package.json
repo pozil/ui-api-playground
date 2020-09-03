@@ -9,6 +9,6 @@
     "author": "pozil",
     "license": "CC0-1.0",
     "devDependencies": {
-        "prettier": "^1.19.1"
+        "prettier": "^2.1.1"
     }
 }

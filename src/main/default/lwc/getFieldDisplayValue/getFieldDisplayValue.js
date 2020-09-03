@@ -51,7 +51,7 @@ export default class GetFieldDisplayValue extends LightningElement {
     checkJsonTextAreasValidity() {
         let isValidJson = true;
         const textAreas = this.template.querySelectorAll('lightning-textarea');
-        textAreas.forEach(textArea => {
+        textAreas.forEach((textArea) => {
             if (!textArea.checkValidity()) {
                 isValidJson = false;
             }

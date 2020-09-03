@@ -32,7 +32,7 @@ export default class UpdateRecord extends LightningElement {
                 ? JSON.parse(this.clientOptions)
                 : undefined;
         updateRecord(recordInput, clientOptions)
-            .then(response => {
+            .then((response) => {
                 this.dispatchEvent(
                     new CustomEvent('response', {
                         detail: response,
@@ -40,7 +40,7 @@ export default class UpdateRecord extends LightningElement {
                     })
                 );
             })
-            .catch(error => {
+            .catch((error) => {
                 this.dispatchEvent(
                     new CustomEvent('response', {
                         detail: { error },
@@ -53,7 +53,7 @@ export default class UpdateRecord extends LightningElement {
     checkJsonTextAreasValidity() {
         let isValidJson = true;
         const textAreas = this.template.querySelectorAll('lightning-textarea');
-        textAreas.forEach(textArea => {
+        textAreas.forEach((textArea) => {
             if (!textArea.checkValidity()) {
                 isValidJson = false;
             }

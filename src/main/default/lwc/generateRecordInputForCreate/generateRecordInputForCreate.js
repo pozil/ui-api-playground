@@ -51,7 +51,7 @@ export default class GenerateRecordInputForCreate extends LightningElement {
                 ? JSON.parse(this.objectInfo)
                 : undefined;
         generateRecordInputForCreate(record, objectInfo)
-            .then(response => {
+            .then((response) => {
                 this.dispatchEvent(
                     new CustomEvent('response', {
                         detail: response,
@@ -59,7 +59,7 @@ export default class GenerateRecordInputForCreate extends LightningElement {
                     })
                 );
             })
-            .catch(error => {
+            .catch((error) => {
                 this.dispatchEvent(
                     new CustomEvent('response', {
                         detail: { error },
@@ -72,7 +72,7 @@ export default class GenerateRecordInputForCreate extends LightningElement {
     checkJsonTextAreasValidity() {
         let isValidJson = true;
         const textAreas = this.template.querySelectorAll('lightning-textarea');
-        textAreas.forEach(textArea => {
+        textAreas.forEach((textArea) => {
             if (!textArea.checkValidity()) {
                 isValidJson = false;
             }

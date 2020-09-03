@@ -49,7 +49,7 @@ export default class CreateRecordInputFilteredByEditedFields extends LightningEl
     checkJsonTextAreasValidity() {
         let isValidJson = true;
         const textAreas = this.template.querySelectorAll('lightning-textarea');
-        textAreas.forEach(textArea => {
+        textAreas.forEach((textArea) => {
             if (!textArea.checkValidity()) {
                 isValidJson = false;
             }

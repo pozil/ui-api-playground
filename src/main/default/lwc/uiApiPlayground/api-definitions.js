@@ -104,8 +104,8 @@ const API_DEFINITIONS = [
 ];
 
 // Add fullname to endpoints
-const FULL_API_DEFINITIONS = API_DEFINITIONS.map(category => {
-    category.endpoints = category.endpoints.map(endpoint => {
+const FULL_API_DEFINITIONS = API_DEFINITIONS.map((category) => {
+    category.endpoints = category.endpoints.map((endpoint) => {
         endpoint.fullname = `${category.name}.${endpoint.name}`;
         return endpoint;
     });

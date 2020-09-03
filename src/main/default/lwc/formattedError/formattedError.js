@@ -24,12 +24,12 @@ export default class Error extends LightningElement {
         return (
             errors
                 // Remove null/undefined items
-                .filter(error => !!error)
+                .filter((error) => !!error)
                 // Extract an error message
-                .map(error => {
+                .map((error) => {
                     // UI API read errors
                     if (Array.isArray(error.body)) {
-                        return error.body.map(e => e.message);
+                        return error.body.map((e) => e.message);
                     }
                     // UI API DML, Apex and network errors
                     else if (
@@ -48,7 +48,7 @@ export default class Error extends LightningElement {
                 // Flatten
                 .reduce((prev, curr) => prev.concat(curr), [])
                 // Remove empty strings
-                .filter(message => !!message)
+                .filter((message) => !!message)
         );
     }
 }

@@ -11,16 +11,16 @@ For the exhaustive list of REST endpoints, refer to [this documentation](https:/
 
 Install the app by running this script:
 
- **MacOS or Linux**
+**MacOS or Linux**
 
- ```
- ./install-dev.sh
- ```
+```
+./install-dev.sh
+```
 
- **Windows**
+**Windows**
 
- ```
- install-dev.bat
- ```
+```
+install-dev.bat
+```
 
 The script automatically opens the playground but you can find it later in the **UI API Playground** tab.

@@ -13,7 +13,7 @@ export default class UiApiPlayground extends LightningElement {
         this.selectedEndpoint = API_DEFINITIONS.reduce(
             (accumulator, category) => accumulator.concat(category.endpoints),
             []
-        ).find(item => item.name === value);
+        ).find((item) => item.name === value);
     }
 
     get apiDefinitions() {
