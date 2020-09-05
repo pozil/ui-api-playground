@@ -1,4 +1,5 @@
-import { LightningElement, wire } from 'lwc';
+import { LightningElement } from 'lwc';
+import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import { deleteRecord } from 'lightning/uiRecordApi';
 
 export default class GetRecordUi extends LightningElement {
@@ -12,10 +13,12 @@ export default class GetRecordUi extends LightningElement {
         this.dispatchEvent(new CustomEvent('request', { bubbles: true }));
         deleteRecord(this.recordId)
             .then((response) => {
+                console.log(response);
                 this.dispatchEvent(
-                    new CustomEvent('response', {
-                        detail: response,
-                        bubbles: true
+                    new ShowToastEvent({
+                        title: 'Success',
+                        message: 'Record deleted',
+                        variant: 'success'
                     })
                 );
             })
