@@ -12,7 +12,13 @@ export default class GetRecordUi extends LightningElement {
     handleSendRequest() {
         this.dispatchEvent(new CustomEvent('request', { bubbles: true }));
         deleteRecord(this.recordId)
-            .then((response) => {
+            .then(() => {
+                this.dispatchEvent(
+                    new CustomEvent('response', {
+                        detail: undefined,
+                        bubbles: true
+                    })
+                );
                 this.dispatchEvent(
                     new ShowToastEvent({
                         title: 'Success',

@@ -25,13 +25,15 @@ export default class ApiEndpoint extends LightningElement {
         this.isLoading = false;
         this.responseData = undefined;
         this.error = undefined;
-        const { data, error } = event.detail;
-        if (data) {
-            this.responseData = data;
-        } else if (error) {
-            this.error = error;
-        } else if (event.detail) {
-            this.responseData = event.detail;
+        if (event.detail) {
+            const { data, error } = event.detail;
+            if (data) {
+                this.responseData = data;
+            } else if (error) {
+                this.error = error;
+            } else {
+                this.responseData = event.detail;
+            }
         }
     }
 
