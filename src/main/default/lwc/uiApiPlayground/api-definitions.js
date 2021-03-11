@@ -1,5 +1,15 @@
 const API_DEFINITIONS = [
     {
+        name: 'uiAppsApi',
+        endpoints: [
+            {
+                name: 'getNavItems',
+                description: 'Retrieves the items in the navigation menu.',
+                docUrlKey: 'lwc.reference_wire_adapters_get_nav_items'
+            }
+        ]
+    },
+    {
         name: 'uiListApi',
         endpoints: [
             {

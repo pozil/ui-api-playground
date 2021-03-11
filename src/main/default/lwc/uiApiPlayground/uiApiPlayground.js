@@ -67,4 +67,7 @@ export default class UiApiPlayground extends LightningElement {
     get isUpdateRecord() {
         return this.selectedEndpoint.name === 'updateRecord';
     }
+    get isGetNavItems() {
+        return this.selectedEndpoint.name === 'getNavItems';
+    }
 }

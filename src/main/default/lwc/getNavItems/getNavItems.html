@@ -1,0 +1,41 @@
+<template>
+    <div class="slds-form">
+        <lightning-combobox
+            label="Form factor"
+            value={formFactor}
+            options={formFactorOptions}
+            onchange={handleFormFactorChange}
+        ></lightning-combobox>
+        <lightning-input
+            value={navItemNames}
+            name="navItemNames"
+            onchange={handleChange}
+            type="text"
+            label="Navigation item names"
+            field-level-help="A comma-delimited list of TabDefinition name values to include in the response. If not specified, the response includes all the navigation items for the specified form factor."
+        ></lightning-input>
+        <lightning-input
+            value={page}
+            name="page"
+            onchange={handleChange}
+            type="number"
+            label="Page"
+            field-level-help="The page offset from which to begin returning nav items."
+        ></lightning-input>
+        <lightning-input
+            value={pageSize}
+            name="pageSize"
+            onchange={handleChange}
+            type="number"
+            label="Page size"
+            field-level-help="The maximum number of nav items to return on a page."
+        ></lightning-input>
+    </div>
+    <div class="slds-m-top_small slds-text-align_right">
+        <lightning-button
+            variant="brand"
+            label="Send"
+            onclick={handleSendRequest}
+        ></lightning-button>
+    </div>
+</template>
