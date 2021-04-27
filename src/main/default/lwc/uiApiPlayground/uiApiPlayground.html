@@ -32,6 +32,9 @@
                     doc-url-key={selectedEndpoint.docUrlKey}
                 >
                     <c-get-list-ui if:true={isGetListUi}></c-get-list-ui>
+                    <c-get-list-info-by-name
+                        if:true={isGetListInfoByName}
+                    ></c-get-list-info-by-name>
                     <c-get-object-info
                         if:true={isGetObjectInfo}
                     ></c-get-object-info>

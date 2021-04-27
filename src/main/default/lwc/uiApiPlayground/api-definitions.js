@@ -21,6 +21,17 @@ const API_DEFINITIONS = [
         ]
     },
     {
+        name: 'uiListsApi',
+        endpoints: [
+            {
+                name: 'getListInfoByName',
+                description:
+                    'Use this wire adapter to get the metadata for a list view.',
+                docUrlKey: 'lwc.reference_get_list_ui'
+            }
+        ]
+    },
+    {
         name: 'uiObjectInfoApi',
         endpoints: [
             {

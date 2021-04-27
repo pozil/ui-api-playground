@@ -1,0 +1,26 @@
+<template>
+    <div class="slds-form">
+        <lightning-input
+            value={objectApiName}
+            onchange={handleObjectApiNameChange}
+            type="text"
+            label="Object API Name"
+            required
+        ></lightning-input>
+        <lightning-input
+            value={listViewApiName}
+            onchange={handleListViewApiNameChange}
+            type="text"
+            label="List View API Name"
+            required
+        ></lightning-input>
+    </div>
+    <div class="slds-m-top_small slds-text-align_right">
+        <lightning-button
+            variant="brand"
+            label="Send"
+            onclick={handleSendRequest}
+            disabled={isCallApiButtonDisabled}
+        ></lightning-button>
+    </div>
+</template>
