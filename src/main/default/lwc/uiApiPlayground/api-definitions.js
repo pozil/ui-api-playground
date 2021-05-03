@@ -15,7 +15,7 @@ const API_DEFINITIONS = [
             {
                 name: 'getListUi',
                 description:
-                    "Use this wire adapter to get the records and metadata for a list view. Leave the 'List View API Name' field empty to retrieve all list views.",
+                    "[DEPRECATED] Use this wire adapter to get the records and metadata for a list view. Leave the 'List View API Name' field empty to retrieve all list views.",
                 docUrlKey: 'lwc.reference_get_list_ui'
             }
         ]
@@ -26,7 +26,7 @@ const API_DEFINITIONS = [
             {
                 name: 'getListInfoByName',
                 description:
-                    'Use this wire adapter to get the metadata for a list view.',
+                    '[BETA] Use this wire adapter to get the metadata for a list view.',
                 docUrlKey: 'lwc.reference_get_list_ui'
             }
         ]
