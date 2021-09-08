@@ -22,6 +22,9 @@ export default class UiApiPlayground extends LightningElement {
     get isGetListUi() {
         return this.selectedEndpoint.name === 'getListUi';
     }
+    get isGetListInfoByName() {
+        return this.selectedEndpoint.name === 'getListInfoByName';
+    }
     get isGetObjectInfo() {
         return this.selectedEndpoint.name === 'getObjectInfo';
     }
