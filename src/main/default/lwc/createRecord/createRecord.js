@@ -28,26 +28,25 @@ export default class CreateRecord extends LightningElement {
         event.target.reportValidity();
     }
 
-    handleSendRequest() {
+    async handleSendRequest() {
         this.dispatchEvent(new CustomEvent('request', { bubbles: true }));
         const recordInput = JSON.parse(this.recordInput);
-        createRecord(recordInput)
-            .then((response) => {
-                this.dispatchEvent(
-                    new CustomEvent('response', {
-                        detail: response,
-                        bubbles: true
-                    })
-                );
-            })
-            .catch((error) => {
-                this.dispatchEvent(
-                    new CustomEvent('response', {
-                        detail: { error },
-                        bubbles: true
-                    })
-                );
-            });
+        try {
+            const response = await createRecord(recordInput);
+            this.dispatchEvent(
+                new CustomEvent('response', {
+                    detail: response,
+                    bubbles: true
+                })
+            );
+        } catch (error) {
+            this.dispatchEvent(
+                new CustomEvent('response', {
+                    detail: { error },
+                    bubbles: true
+                })
+            );
+        }
     }
 
     checkJsonTextAreasValidity() {
