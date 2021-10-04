@@ -1,0 +1,21 @@
+<template>
+    <div class="slds-form">
+        <lightning-input
+            value={recordIds}
+            onchange={handleRecordIdsChange}
+            type="text"
+            label="Record IDs"
+            field-level-help="A comma-delimited list of record IDs to include in the response."
+            min-length="15"
+            required
+        ></lightning-input>
+    </div>
+    <div class="slds-m-top_small slds-text-align_right">
+        <lightning-button
+            variant="brand"
+            label="Send"
+            onclick={handleSendRequest}
+            disabled={isCallApiButtonDisabled}
+        ></lightning-button>
+    </div>
+</template>

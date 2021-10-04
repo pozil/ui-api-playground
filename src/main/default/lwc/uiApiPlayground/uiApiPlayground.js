@@ -28,6 +28,9 @@ export default class UiApiPlayground extends LightningElement {
     get isGetObjectInfo() {
         return this.selectedEndpoint.name === 'getObjectInfo';
     }
+    get isGetObjectInfos() {
+        return this.selectedEndpoint.name === 'getObjectInfos';
+    }
     get isGetPicklistValues() {
         return this.selectedEndpoint.name === 'getPicklistValues';
     }
@@ -63,6 +66,9 @@ export default class UiApiPlayground extends LightningElement {
     }
     get isGetRecordCreateDefaults() {
         return this.selectedEndpoint.name === 'getRecordCreateDefaults';
+    }
+    get isGetRecordNotifyChange() {
+        return this.selectedEndpoint.name === 'getRecordNotifyChange';
     }
     get isGetRecordUi() {
         return this.selectedEndpoint.name === 'getRecordUi';
