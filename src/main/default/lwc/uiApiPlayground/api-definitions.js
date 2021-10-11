@@ -4,8 +4,20 @@ const API_DEFINITIONS = [
         endpoints: [
             {
                 name: 'getNavItems',
-                description: 'Retrieves the items in the navigation menu.',
+                description:
+                    '[BETA] Retrieves the items in the navigation menu.',
                 docUrlKey: 'lwc.reference_wire_adapters_get_nav_items'
+            }
+        ]
+    },
+    {
+        name: 'uiListsApi',
+        endpoints: [
+            {
+                name: 'getListInfoByName',
+                description:
+                    'Use this wire adapter to get the metadata for a list view.',
+                docUrlKey: 'lwc.reference_get_list_info_by_name'
             }
         ]
     },
@@ -21,17 +33,6 @@ const API_DEFINITIONS = [
         ]
     },
     {
-        name: 'uiListsApi',
-        endpoints: [
-            {
-                name: 'getListInfoByName',
-                description:
-                    '[BETA] Use this wire adapter to get the metadata for a list view.',
-                docUrlKey: 'lwc.reference_get_list_ui'
-            }
-        ]
-    },
-    {
         name: 'uiObjectInfoApi',
         endpoints: [
             {
@@ -39,6 +40,12 @@ const API_DEFINITIONS = [
                 description:
                     'Use this wire adapter to get metadata about a specific object. The response includes metadata describing fields, child relationships, record type, and theme.',
                 docUrlKey: 'lwc.reference_wire_adapters_object_info'
+            },
+            {
+                name: 'getObjectInfos',
+                description:
+                    'Use this wire adapter to get metadata for multiple specific object. The response includes metadata describing fields, child relationships, record type, and theme for each object.',
+                docUrlKey: 'lwc.reference_wire_adapters_object_infos'
             },
             {
                 name: 'getPicklistValues',
@@ -107,6 +114,12 @@ const API_DEFINITIONS = [
                 description:
                     'Use this wire adapter to get default information and data needed to create a record.',
                 docUrlKey: 'lwc.reference_wire_adapters_create_record_values'
+            },
+            {
+                name: 'getRecordNotifyChange',
+                description:
+                    'Fetch record updates for the specified record IDs and refresh the Lightning Data Service cache, providing your wires with the latest record data. Call this function to notify Lightning Data Service that a record has changed outside its mechanisms, such as via imperative Apex or Visualforce, or by calling User Interface API via a third-party framework.',
+                docUrlKey: 'lwc.reference_get_record_notify'
             },
             {
                 name: 'getRecordUi',

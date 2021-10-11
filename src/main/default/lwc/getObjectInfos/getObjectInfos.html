@@ -1,11 +1,11 @@
 <template>
     <div class="slds-form">
         <lightning-input
-            value={recordId}
-            onchange={handleRecordIdChange}
+            value={objectApiNames}
+            onchange={handleObjectApiNamesChange}
             type="text"
-            label="Record Id"
-            min-length="15"
+            label="Object API Names"
+            field-level-help="A comma-delimited list of API names to include in the response."
             required
         ></lightning-input>
     </div>

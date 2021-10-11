@@ -43,30 +43,33 @@ export default class GenerateRecordInputForCreate extends LightningElement {
         event.target.reportValidity();
     }
 
-    handleSendRequest() {
+    async handleSendRequest() {
         this.dispatchEvent(new CustomEvent('request', { bubbles: true }));
         const record = JSON.parse(this.record);
         const objectInfo =
             this.objectInfo && this.objectInfo !== ''
                 ? JSON.parse(this.objectInfo)
                 : undefined;
-        generateRecordInputForCreate(record, objectInfo)
-            .then((response) => {
-                this.dispatchEvent(
-                    new CustomEvent('response', {
-                        detail: response,
-                        bubbles: true
-                    })
-                );
-            })
-            .catch((error) => {
-                this.dispatchEvent(
-                    new CustomEvent('response', {
-                        detail: { error },
-                        bubbles: true
-                    })
-                );
-            });
+
+        try {
+            const response = await generateRecordInputForCreate(
+                record,
+                objectInfo
+            );
+            this.dispatchEvent(
+                new CustomEvent('response', {
+                    detail: response,
+                    bubbles: true
+                })
+            );
+        } catch (error) {
+            this.dispatchEvent(
+                new CustomEvent('response', {
+                    detail: { error },
+                    bubbles: true
+                })
+            );
+        }
     }
 
     checkJsonTextAreasValidity() {

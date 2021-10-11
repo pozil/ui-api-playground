@@ -3,6 +3,7 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
+                <identifier>uiApiPlayground</identifier>
                 <componentName>uiApiPlayground</componentName>
             </componentInstance>
         </itemInstances>

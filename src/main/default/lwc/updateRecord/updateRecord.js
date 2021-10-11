@@ -24,30 +24,29 @@ export default class UpdateRecord extends LightningElement {
         event.target.reportValidity();
     }
 
-    handleSendRequest() {
+    async handleSendRequest() {
         this.dispatchEvent(new CustomEvent('request', { bubbles: true }));
         const recordInput = JSON.parse(this.recordInput);
         const clientOptions =
             this.clientOptions && this.clientOptions !== ''
                 ? JSON.parse(this.clientOptions)
                 : undefined;
-        updateRecord(recordInput, clientOptions)
-            .then((response) => {
-                this.dispatchEvent(
-                    new CustomEvent('response', {
-                        detail: response,
-                        bubbles: true
-                    })
-                );
-            })
-            .catch((error) => {
-                this.dispatchEvent(
-                    new CustomEvent('response', {
-                        detail: { error },
-                        bubbles: true
-                    })
-                );
-            });
+        try {
+            const response = await updateRecord(recordInput, clientOptions);
+            this.dispatchEvent(
+                new CustomEvent('response', {
+                    detail: response,
+                    bubbles: true
+                })
+            );
+        } catch (error) {
+            this.dispatchEvent(
+                new CustomEvent('response', {
+                    detail: { error },
+                    bubbles: true
+                })
+            );
+        }
     }
 
     checkJsonTextAreasValidity() {

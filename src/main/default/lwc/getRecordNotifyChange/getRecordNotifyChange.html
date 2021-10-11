@@ -1,10 +1,11 @@
 <template>
     <div class="slds-form">
         <lightning-input
-            value={recordId}
-            onchange={handleRecordIdChange}
+            value={recordIds}
+            onchange={handleRecordIdsChange}
             type="text"
-            label="Record Id"
+            label="Record IDs"
+            field-level-help="A comma-delimited list of record IDs to include in the response."
             min-length="15"
             required
         ></lightning-input>
