@@ -141,7 +141,23 @@ const API_DEFINITIONS = [
             {
                 name: 'getRelatedListRecords',
                 description: 'Returns record data for a related list.',
-                docUrlKey: 'lwc.reference_wire_adapters_record_ui'
+                docUrlKey:
+                    'lwc.reference_wire_adapters_get_related_list_records'
+            },
+            {
+                name: 'getRelatedListInfo',
+                description: 'Returns metadata for a related list.',
+                docUrlKey: 'lwc.reference_wire_adapters_get_related_list_info'
+            },
+            {
+                name: 'getRelatedListsInfo',
+                description: 'Returns metadata for multiple related lists.',
+                docUrlKey: 'lwc.reference_wire_adapters_get_related_lists_info'
+            },
+            {
+                name: 'getRelatedListCount',
+                description: 'Returns the record count for a related list.',
+                docUrlKey: 'lwc.reference_wire_adapters_get_related_list_count'
             }
         ]
     }

@@ -85,8 +85,8 @@ export default class UiApiPlayground extends LightningElement {
     get isGetRelatedListInfo() {
         return this.selectedEndpoint.name === 'getRelatedListInfo';
     }
-    get isGetRelatedListInfos() {
-        return this.selectedEndpoint.name === 'getRelatedListInfos';
+    get isGetRelatedListsInfo() {
+        return this.selectedEndpoint.name === 'getRelatedListsInfo';
     }
     get isGetRelatedListCount() {
         return this.selectedEndpoint.name === 'getRelatedListCount';
