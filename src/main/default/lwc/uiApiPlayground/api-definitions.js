@@ -134,13 +134,27 @@ const API_DEFINITIONS = [
                 docUrlKey: 'lwc.reference_update_record'
             }
         ]
+    },
+    {
+        name: 'uiRelatedListApi (Beta)',
+        endpoints: [
+            {
+                name: 'getRelatedListRecords',
+                description: 'Returns record data for a related list.',
+                docUrlKey: 'lwc.reference_wire_adapters_record_ui'
+            }
+        ]
     }
 ];
 
 // Add fullname to endpoints
 const FULL_API_DEFINITIONS = API_DEFINITIONS.map((category) => {
     category.endpoints = category.endpoints.map((endpoint) => {
-        endpoint.fullname = `${category.name}.${endpoint.name}`;
+        let categoryName = category.name;
+        if (categoryName.indexOf(' ') !== -1) {
+            categoryName = categoryName.substring(0, categoryName.indexOf(' '));
+        }
+        endpoint.fullname = `${categoryName}.${endpoint.name}`;
         return endpoint;
     });
     return category;

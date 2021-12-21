@@ -1,0 +1,34 @@
+<template>
+    <div class="slds-form">
+        <lightning-input
+            value={parentRecordId}
+            onchange={handleParentRecordIdChange}
+            type="text"
+            label="Parent Record ID"
+            required
+        ></lightning-input>
+        <lightning-input
+            value={relatedListId}
+            onchange={handleRelatedListIdChange}
+            type="text"
+            label="Related List ID"
+            required
+        ></lightning-input>
+        <lightning-input
+            value={fields}
+            onchange={handleFieldsChange}
+            type="text"
+            label="Fields"
+            required
+            field-level-help="Comma-separated list of field API name prefixed with the object API name like 'Account.Rating'."
+        ></lightning-input>
+    </div>
+    <div class="slds-m-top_small slds-text-align_right">
+        <lightning-button
+            variant="brand"
+            label="Send"
+            onclick={handleSendRequest}
+            disabled={isCallApiButtonDisabled}
+        ></lightning-button>
+    </div>
+</template>
