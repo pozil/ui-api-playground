@@ -9,7 +9,7 @@
     "author": "pozil",
     "license": "CC0-1.0",
     "devDependencies": {
-        "prettier": "^2.4.1",
+        "prettier": "^2.5.1",
         "prettier-plugin-apex": "^1.10.0"
     }
 }
