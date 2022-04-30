@@ -1,0 +1,26 @@
+<template>
+    <div class="slds-m-bottom_medium slds-grid">
+        <div class="slds-col">
+            <lightning-input
+                value={relatedListId}
+                onchange={handleRelatedListIdChange}
+                type="text"
+                label="Related List ID"
+                required
+            ></lightning-input>
+            <lightning-input
+                value={fieldsString}
+                onchange={handleFieldsChange}
+                type="text"
+                label="Fields"
+                required
+                field-level-help="Comma-separated list of field API name prefixed with the object API name like 'Account.Rating'."
+            ></lightning-input>
+        </div>
+        <lightning-button
+            label="Remove"
+            onclick={handleRemove}
+            class="slds-m-top_large"
+        ></lightning-button>
+    </div>
+</template>

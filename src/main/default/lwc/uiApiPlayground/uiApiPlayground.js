@@ -25,6 +25,9 @@ export default class UiApiPlayground extends LightningElement {
     get isGetListInfoByName() {
         return this.selectedEndpoint.name === 'getListInfoByName';
     }
+    get isGetListInfoByNames() {
+        return this.selectedEndpoint.name === 'getListInfoByNames';
+    }
     get isGetObjectInfo() {
         return this.selectedEndpoint.name === 'getObjectInfo';
     }
@@ -82,8 +85,14 @@ export default class UiApiPlayground extends LightningElement {
     get isGetRelatedListRecords() {
         return this.selectedEndpoint.name === 'getRelatedListRecords';
     }
+    get isGetRelatedListRecordsBatch() {
+        return this.selectedEndpoint.name === 'getRelatedListRecordsBatch';
+    }
     get isGetRelatedListInfo() {
         return this.selectedEndpoint.name === 'getRelatedListInfo';
+    }
+    get isGetRelatedListInfoBatch() {
+        return this.selectedEndpoint.name === 'getRelatedListInfoBatch';
     }
     get isGetRelatedListsInfo() {
         return this.selectedEndpoint.name === 'getRelatedListsInfo';

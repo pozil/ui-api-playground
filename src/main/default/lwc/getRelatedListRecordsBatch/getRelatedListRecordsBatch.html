@@ -1,0 +1,32 @@
+<template>
+    <div class="slds-form">
+        <lightning-input
+            value={parentRecordId}
+            onchange={handleParentRecordIdChange}
+            type="text"
+            label="Parent Record ID"
+            class="slds-m-bottom_medium"
+            required
+        ></lightning-input>
+        <template for:each={relatedListParameters} for:item="relatedList">
+            <c-related-list-info-form
+                key={relatedList.relatedListId}
+                list-data={relatedList}
+                onremove={handleRemoveItem}
+            ></c-related-list-info-form>
+        </template>
+    </div>
+    <div class="slds-m-top_large slds-text-align_right">
+        <lightning-button
+            label="Add related list"
+            onclick={handleAddItem}
+            class="slds-m-right_small"
+        ></lightning-button>
+        <lightning-button
+            variant="brand"
+            label="Send"
+            onclick={handleSendRequest}
+            disabled={isCallApiButtonDisabled}
+        ></lightning-button>
+    </div>
+</template>

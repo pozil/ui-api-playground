@@ -18,6 +18,12 @@ const API_DEFINITIONS = [
                 description:
                     'Use this wire adapter to get the metadata for a list view.',
                 docUrlKey: 'lwc.reference_get_list_info_by_name'
+            },
+            {
+                name: 'getListInfoByNames',
+                description:
+                    'Use this wire adapter to get the metadata for a batch of list views.',
+                docUrlKey: 'lwc.reference_get_list_info_by_names'
             }
         ]
     },
@@ -136,7 +142,7 @@ const API_DEFINITIONS = [
         ]
     },
     {
-        name: 'uiRelatedListApi (Beta)',
+        name: 'uiRelatedListApi',
         endpoints: [
             {
                 name: 'getRelatedListRecords',
@@ -145,9 +151,22 @@ const API_DEFINITIONS = [
                     'lwc.reference_wire_adapters_get_related_list_records'
             },
             {
+                name: 'getRelatedListRecordsBatch',
+                description:
+                    'Returns record data for a batch of related lists.',
+                docUrlKey:
+                    'lwc.reference_wire_adapters_get_related_list_records_batch'
+            },
+            {
                 name: 'getRelatedListInfo',
                 description: 'Returns metadata for a related list.',
                 docUrlKey: 'lwc.reference_wire_adapters_get_related_list_info'
+            },
+            {
+                name: 'getRelatedListInfoBatch',
+                description: 'Returns metadata for a batch of related lists.',
+                docUrlKey:
+                    'lwc.reference_wire_adapters_get_related_list_info_batch'
             },
             {
                 name: 'getRelatedListsInfo',
