@@ -1,18 +1,18 @@
 import { LightningElement, wire } from 'lwc';
-import { getRelatedListInfo } from 'lightning/uiRelatedListApi';
+import { getRelatedListInfoBatch } from 'lightning/uiRelatedListApi';
 
 export default class GetRelatedListInfoBatch extends LightningElement {
     parentObjectApiName = 'Account';
-    relatedListIds = 'Contacts, Opportunities';
+    relatedListNames = 'Contacts, Opportunities';
     recordTypeId = '';
 
     parentObjectApiNameFinal;
-    relatedListIdsFinal;
+    relatedListNamesFinal;
     recordTypeIdFinal;
 
-    @wire(getRelatedListInfo, {
+    @wire(getRelatedListInfoBatch, {
         parentObjectApiName: '$parentObjectApiNameFinal',
-        relatedListIds: '$relatedListIdsFinal',
+        relatedListNames: '$relatedListNamesFinal',
         recordTypeId: '$recordTypeIdFinal'
     })
     callUiApi(response) {
@@ -28,8 +28,8 @@ export default class GetRelatedListInfoBatch extends LightningElement {
         this.parentObjectApiName = event.target.value;
     }
 
-    handleRelatedListIdsChange(event) {
-        this.relatedListIds = event.target.value;
+    handlRelatedListNamesChange(event) {
+        this.relatedListNames = event.target.value;
     }
 
     handleRecordTypeIdChange(event) {
@@ -38,7 +38,7 @@ export default class GetRelatedListInfoBatch extends LightningElement {
 
     handleSendRequest() {
         this.parentObjectApiNameFinal = this.parentObjectApiName;
-        this.relatedListIdsFinal = this.relatedListIds
+        this.relatedListNamesFinal = this.relatedListNames
             .replace(' ', '')
             .split(',');
         this.recordTypeIdFinal =
@@ -47,6 +47,6 @@ export default class GetRelatedListInfoBatch extends LightningElement {
     }
 
     get isCallApiButtonDisabled() {
-        return !this.parentObjectApiName || !this.relatedListIds;
+        return !this.parentObjectApiName || !this.relatedListNames;
     }
 }

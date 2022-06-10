@@ -35,13 +35,9 @@
                     <c-get-list-info-by-name
                         if:true={isGetListInfoByName}
                     ></c-get-list-info-by-name>
-
-                    <!--
-                    <c-get-list-info-by-names
-                        if:true={isGetListInfoByNames}
-                    ></c-get-list-info-by-names>
-                    -->
-
+                    <c-get-list-infos-by-name
+                        if:true={isGetListInfosByName}
+                    ></c-get-list-infos-by-name>
                     <c-get-object-info
                         if:true={isGetObjectInfo}
                     ></c-get-object-info>
@@ -72,6 +68,7 @@
                         if:true={isGetFieldDisplayValue}
                     ></c-get-field-display-value>
                     <c-get-record if:true={isGetRecord}></c-get-record>
+                    <c-get-records if:true={isGetRecords}></c-get-records>
                     <c-get-record-create-defaults
                         if:true={isGetRecordCreateDefaults}
                     ></c-get-record-create-defaults>

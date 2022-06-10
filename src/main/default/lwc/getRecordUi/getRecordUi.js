@@ -47,7 +47,9 @@ export default class GetRecordUi extends LightningElement {
         this.recordIdsFinal = this.recordIds;
         this.layoutTypesFinal = this.layoutTypes;
         this.modesFinal = this.modes;
-        this.optionalFieldsFinal = this.optionalFields;
+        this.optionalFieldsFinal = this.optionalFields
+            ?.replace(' ', '')
+            .split(',');
         this.dispatchEvent(new CustomEvent('request', { bubbles: true }));
     }
 

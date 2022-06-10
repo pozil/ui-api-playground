@@ -1,0 +1,89 @@
+<template>
+    <div class="slds-form">
+        <div
+            class="slds-media slds-media_center slds-media_small slds-m-bottom_small"
+        >
+            <div class="slds-media__figure">
+                <lightning-icon
+                    icon-name="utility:info"
+                    size="xx-small"
+                    alternative-text="Info"
+                ></lightning-icon>
+            </div>
+            <div class="slds-media__body">
+                <p>
+                    Some of the enpoint parameters accept multiple values but
+                    the Playground only supports one value per parameter.
+                </p>
+            </div>
+        </div>
+
+        <lightning-input
+            value={recordIds}
+            onchange={handleRecordIdsChange}
+            type="text"
+            label="Record Ids"
+            min-length="15"
+            required
+            field-level-help="A comma-delimited list of of record IDs."
+        ></lightning-input>
+
+        <lightning-radio-group
+            label="API variant"
+            options={apiVariantOptions}
+            value={apiVariant}
+            type="button"
+            variant="label-inline"
+            class="slds-m-top_small"
+            onchange={handleApiVariantChange}
+        ></lightning-radio-group>
+
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col slds-size_1-of-2">
+                <lightning-input
+                    value={fields}
+                    onchange={handleFieldsChange}
+                    type="text"
+                    label="Fields"
+                    required={isFieldVariant}
+                    disabled={isModeAndLayoutVariant}
+                    field-level-help="Field API name prefixed with the object API name like 'Account.Rating'."
+                ></lightning-input>
+            </div>
+            <div class="slds-col slds-size_1-of-2">
+                <lightning-combobox
+                    label="Layout type"
+                    value={layoutTypes}
+                    options={layoutTypeOptions}
+                    onchange={handleLayoutTypeChange}
+                    required={isModeAndLayoutVariant}
+                    disabled={isFieldVariant}
+                ></lightning-combobox>
+                <lightning-combobox
+                    label="Mode"
+                    value={modes}
+                    options={modeOptions}
+                    onchange={handleModeChange}
+                    required={isModeAndLayoutVariant}
+                    disabled={isFieldVariant}
+                ></lightning-combobox>
+            </div>
+        </div>
+
+        <lightning-input
+            value={optionalFields}
+            onchange={handleOptionalFieldChange}
+            type="text"
+            label="Optional field"
+            field-level-help="Field API name prefixed with the object API name like 'Account.Rating'."
+        ></lightning-input>
+    </div>
+    <div class="slds-m-top_small slds-text-align_right">
+        <lightning-button
+            variant="brand"
+            label="Send"
+            onclick={handleSendRequest}
+            disabled={isCallApiButtonDisabled}
+        ></lightning-button>
+    </div>
+</template>

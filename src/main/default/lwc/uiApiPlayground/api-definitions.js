@@ -20,10 +20,10 @@ const API_DEFINITIONS = [
                 docUrlKey: 'lwc.reference_get_list_info_by_name'
             },
             {
-                name: 'getListInfoByNames',
+                name: 'getListInfosByName',
                 description:
                     'Use this wire adapter to get the metadata for a batch of list views.',
-                docUrlKey: 'lwc.reference_get_list_info_by_names'
+                docUrlKey: 'lwc.reference_get_list_infos_by_name'
             }
         ]
     },
@@ -113,6 +113,12 @@ const API_DEFINITIONS = [
             {
                 name: 'getRecord',
                 description: 'Use this wire adapter to get a record’s data.',
+                docUrlKey: 'lwc.reference_wire_adapters_record_ui'
+            },
+            {
+                name: 'getRecords',
+                description:
+                    'Gets data for a batch of records at once. You can request multiple objects or different record types.',
                 docUrlKey: 'lwc.reference_wire_adapters_record_ui'
             },
             {
