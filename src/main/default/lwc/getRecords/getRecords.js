@@ -1,25 +1,27 @@
 import { LightningElement, wire } from 'lwc';
-import { getRecord } from 'lightning/uiRecordApi';
+import { getRecords } from 'lightning/uiRecordApi';
+
+import NAME_FIELD from '@salesforce/schema/Contact.Name';
 
 const API_VARIANT_FIELDS = 'fields';
 const API_VARIANT_MODE_LAYOUT = 'modeAndLayout';
 
 export default class GetRecordUi extends LightningElement {
     apiVariant = API_VARIANT_FIELDS;
-    recordId = '0010u000005dp2dAAA';
+    recordIds = '0010u000005dp2dAAA';
     fields;
     layoutTypes = 'Compact';
     modes = 'View';
     optionalFields;
 
-    recordIdFinal;
+    recordIdsFinal;
     fieldsFinal;
     layoutTypesFinal;
     modesFinal;
     optionalFieldsFinal;
 
-    @wire(getRecord, {
-        recordId: '$recordIdFinal',
+    @wire(getRecords, {
+        recordIds: '$recordIdsFinal',
         fields: '$fieldsFinal',
         optionalFields: '$optionalFieldsFinal'
     })
@@ -32,8 +34,8 @@ export default class GetRecordUi extends LightningElement {
         );
     }
 
-    @wire(getRecord, {
-        recordId: '$recordIdFinal',
+    @wire(getRecords, {
+        recordIds: '$recordIdsFinal',
         layoutTypes: '$layoutTypesFinal',
         modes: '$modesFinal',
         optionalFields: '$optionalFieldsFinal'
@@ -47,8 +49,8 @@ export default class GetRecordUi extends LightningElement {
         );
     }
 
-    handleRecordIdChange(event) {
-        this.recordId = event.target.value;
+    handleRecordIdsChange(event) {
+        this.recordIds = event.target.value;
     }
 
     handleApiVariantChange(event) {
@@ -78,24 +80,43 @@ export default class GetRecordUi extends LightningElement {
     }
 
     handleSendRequest() {
-        this.recordIdFinal = this.recordId;
+        this.recordIdsFinal = this.recordIds?.replace(' ', '').split(',');
         if (this.apiVariant === API_VARIANT_FIELDS) {
-            this.fieldsFinal = this.fields?.replace(' ', '').split(',');
+            this.fieldsFinal = this.toFieldObjects(this.fields);
         } else {
             this.layoutTypesFinal = this.layoutTypes;
             this.modesFinal = this.modes;
         }
-        this.optionalFieldsFinal = this.optionalFields
-            ?.replace(' ', '')
-            .split(',');
+        this.optionalFieldsFinal = this.toFieldObjects(this.optionalFields);
         this.dispatchEvent(new CustomEvent('request', { bubbles: true }));
+    }
+
+    toFieldObjects(rawValue) {
+        if (!rawValue) {
+            return undefined;
+        }
+        return rawValue
+            .replace(' ', '')
+            .split(',')
+            .map((qualifiedFieldName) => {
+                const parts = qualifiedFieldName.split('.');
+                if (parts.length != 2) {
+                    throw new Error(
+                        `Not a qualified field name: ${qualifiedFieldName}`
+                    );
+                }
+                return {
+                    objectApiName: parts[0],
+                    fieldApiName: parts[1]
+                };
+            });
     }
 
     get isCallApiButtonDisabled() {
         if (this.apiVariant === API_VARIANT_FIELDS) {
-            return !(this.recordId && this.fields);
+            return !(this.recordIds && this.fields);
         }
-        return !(this.recordId && this.layoutTypes && this.modes);
+        return !(this.recordIds && this.layoutTypes && this.modes);
     }
 
     get apiVariantOptions() {

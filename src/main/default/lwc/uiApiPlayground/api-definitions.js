@@ -18,6 +18,12 @@ const API_DEFINITIONS = [
                 description:
                     'Use this wire adapter to get the metadata for a list view.',
                 docUrlKey: 'lwc.reference_get_list_info_by_name'
+            },
+            {
+                name: 'getListInfosByName',
+                description:
+                    'Use this wire adapter to get the metadata for a batch of list views.',
+                docUrlKey: 'lwc.reference_get_list_infos_by_name'
             }
         ]
     },
@@ -110,6 +116,12 @@ const API_DEFINITIONS = [
                 docUrlKey: 'lwc.reference_wire_adapters_record_ui'
             },
             {
+                name: 'getRecords',
+                description:
+                    'Gets data for a batch of records at once. You can request multiple objects or different record types.',
+                docUrlKey: 'lwc.reference_wire_adapters_record_ui'
+            },
+            {
                 name: 'getRecordCreateDefaults',
                 description:
                     'Use this wire adapter to get default information and data needed to create a record.',
@@ -136,7 +148,7 @@ const API_DEFINITIONS = [
         ]
     },
     {
-        name: 'uiRelatedListApi (Beta)',
+        name: 'uiRelatedListApi',
         endpoints: [
             {
                 name: 'getRelatedListRecords',
@@ -145,9 +157,22 @@ const API_DEFINITIONS = [
                     'lwc.reference_wire_adapters_get_related_list_records'
             },
             {
+                name: 'getRelatedListRecordsBatch',
+                description:
+                    'Returns record data for a batch of related lists.',
+                docUrlKey:
+                    'lwc.reference_wire_adapters_get_related_list_records_batch'
+            },
+            {
                 name: 'getRelatedListInfo',
                 description: 'Returns metadata for a related list.',
                 docUrlKey: 'lwc.reference_wire_adapters_get_related_list_info'
+            },
+            {
+                name: 'getRelatedListInfoBatch',
+                description: 'Returns metadata for a batch of related lists.',
+                docUrlKey:
+                    'lwc.reference_wire_adapters_get_related_list_info_batch'
             },
             {
                 name: 'getRelatedListsInfo',

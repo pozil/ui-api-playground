@@ -1,0 +1,34 @@
+<template>
+    <div class="slds-form">
+        <lightning-input
+            value={parentObjectApiName}
+            onchange={handleParentObjectApiNameChange}
+            type="text"
+            label="Parent Object API Name"
+            required
+        ></lightning-input>
+        <lightning-input
+            value={relatedListNames}
+            onchange={handlRelatedListNamesChange}
+            type="text"
+            label="Related List Names"
+            field-level-help="Comma-separated list of related list names."
+            required
+        ></lightning-input>
+        <lightning-input
+            value={recordTypeId}
+            onchange={handleRecordTypeIdChange}
+            type="text"
+            label="Record Type ID"
+            field-level-help="The ID of the parent record type. If not provided, the default record type is used."
+        ></lightning-input>
+    </div>
+    <div class="slds-m-top_small slds-text-align_right">
+        <lightning-button
+            variant="brand"
+            label="Send"
+            onclick={handleSendRequest}
+            disabled={isCallApiButtonDisabled}
+        ></lightning-button>
+    </div>
+</template>

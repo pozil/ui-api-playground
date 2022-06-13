@@ -1,0 +1,20 @@
+<template>
+    <div class="slds-form">
+        <lightning-input
+            value={listViewApiNames}
+            onchange={handleListViewApiNamesChange}
+            type="text"
+            label="List View API Names"
+            field-level-help="A comma-delimited list of fully qualified list view names."
+            required
+        ></lightning-input>
+    </div>
+    <div class="slds-m-top_small slds-text-align_right">
+        <lightning-button
+            variant="brand"
+            label="Send"
+            onclick={handleSendRequest}
+            disabled={isCallApiButtonDisabled}
+        ></lightning-button>
+    </div>
+</template>
