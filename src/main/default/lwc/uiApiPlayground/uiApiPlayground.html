@@ -16,7 +16,7 @@
                             <lightning-menu-item
                                 key={endpoint.name}
                                 value={endpoint.name}
-                                label={endpoint.name}
+                                label={endpoint.label}
                                 onclick={handleMenuClick}
                             ></lightning-menu-item>
                         </template>
@@ -28,6 +28,7 @@
             <template if:true={selectedEndpoint}>
                 <c-api-endpoint
                     name={selectedEndpoint.fullname}
+                    status={selectedEndpoint.status}
                     description={selectedEndpoint.description}
                     doc-url-key={selectedEndpoint.docUrlKey}
                 >

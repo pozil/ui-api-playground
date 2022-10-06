@@ -4,6 +4,7 @@ const API_DEFINITIONS = [
         endpoints: [
             {
                 name: 'getNavItems',
+                status: 'Beta',
                 description:
                     '[BETA] Retrieves the items in the navigation menu.',
                 docUrlKey: 'lwc.reference_wire_adapters_get_nav_items'
@@ -32,6 +33,7 @@ const API_DEFINITIONS = [
         endpoints: [
             {
                 name: 'getListUi',
+                status: 'Deprecated',
                 description:
                     "[DEPRECATED] Use this wire adapter to get the records and metadata for a list view. Leave the 'List View API Name' field empty to retrieve all list views.",
                 docUrlKey: 'lwc.reference_get_list_ui'
@@ -135,8 +137,9 @@ const API_DEFINITIONS = [
             },
             {
                 name: 'getRecordUi',
+                status: 'Deprecated',
                 description:
-                    'Use this wire adapter to get layout information, metadata, and data to build UI for one or more records.',
+                    '[DEPRECATED] Use this wire adapter to get layout information, metadata, and data to build UI for one or more records.',
                 docUrlKey: 'lwc.reference_wire_adapters_record'
             },
             {

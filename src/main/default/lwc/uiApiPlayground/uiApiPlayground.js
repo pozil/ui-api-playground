@@ -1,4 +1,4 @@
-import { LightningElement } from 'lwc';
+import { api, LightningElement } from 'lwc';
 import API_DEFINITIONS from './api-definitions.js';
 
 export default class UiApiPlayground extends LightningElement {
@@ -17,7 +17,15 @@ export default class UiApiPlayground extends LightningElement {
     }
 
     get apiDefinitions() {
-        return API_DEFINITIONS;
+        return API_DEFINITIONS.map(apiCategory => {
+            const cat = apiCategory;
+            cat.endpoints = cat.endpoints.map(apiEndpoint => {
+                const e = apiEndpoint;
+                e.label = e.status ? `${e.name} (${e.status})` : e.name;
+                return e;
+            });
+            return cat;
+        });
     }
     get isGetListUi() {
         return this.selectedEndpoint.name === 'getListUi';
