@@ -2,6 +2,7 @@ import { LightningElement, api } from 'lwc';
 
 export default class ApiEndpoint extends LightningElement {
     @api name;
+    @api status;
     @api description;
     @api docUrlKey;
 
@@ -35,6 +36,10 @@ export default class ApiEndpoint extends LightningElement {
                 this.responseData = event.detail;
             }
         }
+    }
+
+    get nameWithStatus() {
+        return this.status ? `${this.name} (${this.status})` : this.name;
     }
 
     get docUrl() {
