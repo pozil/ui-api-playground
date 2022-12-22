@@ -17,9 +17,9 @@ export default class UiApiPlayground extends LightningElement {
     }
 
     get apiDefinitions() {
-        return API_DEFINITIONS.map(apiCategory => {
+        return API_DEFINITIONS.map((apiCategory) => {
             const cat = apiCategory;
-            cat.endpoints = cat.endpoints.map(apiEndpoint => {
+            cat.endpoints = cat.endpoints.map((apiEndpoint) => {
                 const e = apiEndpoint;
                 e.label = e.status ? `${e.name} (${e.status})` : e.name;
                 return e;
