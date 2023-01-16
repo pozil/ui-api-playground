@@ -1,4 +1,4 @@
-import { api, LightningElement } from 'lwc';
+import { LightningElement } from 'lwc';
 import API_DEFINITIONS from './api-definitions.js';
 
 export default class UiApiPlayground extends LightningElement {
@@ -86,6 +86,9 @@ export default class UiApiPlayground extends LightningElement {
     }
     get isGetRecordUi() {
         return this.selectedEndpoint.name === 'getRecordUi';
+    }
+    get isNotifyRecordUpdateAvailable() {
+        return this.selectedEndpoint.name === 'notifyRecordUpdateAvailable';
     }
     get isUpdateRecord() {
         return this.selectedEndpoint.name === 'updateRecord';

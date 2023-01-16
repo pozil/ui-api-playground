@@ -3,7 +3,7 @@
         {nameWithStatus}
     </div>
 
-    <c-formatted-error if:true={error} error={error}></c-formatted-error>
+    <c-formatted-error lwc:if={error} error={error}></c-formatted-error>
 
     <div class="slds-grid slds-gutters">
         <div class="slds-col slds-size_1-of-2">
@@ -42,13 +42,13 @@
 
     <!-- Request spinner -->
     <lightning-spinner
-        if:true={isLoading}
+        lwc:if={isLoading}
         variant="brand"
         alternative-text="Waiting for UI API response"
     ></lightning-spinner>
 
     <!-- Response -->
-    <div if:true={responseData}>
+    <div lwc:if={responseData}>
         <div class="slds-text-title_caps slds-m-bottom_small">Response</div>
         <div class="slds-p-horizontal_small">
             <c-json-formatter value={responseData}></c-json-formatter>

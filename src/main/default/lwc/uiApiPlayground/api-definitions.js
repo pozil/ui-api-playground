@@ -131,8 +131,9 @@ const API_DEFINITIONS = [
             },
             {
                 name: 'getRecordNotifyChange',
+                status: 'Deprecated',
                 description:
-                    'Fetch record updates for the specified record IDs and refresh the Lightning Data Service cache, providing your wires with the latest record data. Call this function to notify Lightning Data Service that a record has changed outside its mechanisms, such as via imperative Apex or Visualforce, or by calling User Interface API via a third-party framework.',
+                    '[DEPRECATED] Fetch record updates for the specified record IDs and refresh the Lightning Data Service cache, providing your wires with the latest record data. Call this function to notify Lightning Data Service that a record has changed outside its mechanisms, such as via imperative Apex or Visualforce, or by calling User Interface API via a third-party framework. We recommend using notifyRecordUpdateAvailable(recordIds) instead.',
                 docUrlKey: 'lwc.reference_get_record_notify'
             },
             {
@@ -141,6 +142,12 @@ const API_DEFINITIONS = [
                 description:
                     '[DEPRECATED] Use this wire adapter to get layout information, metadata, and data to build UI for one or more records.',
                 docUrlKey: 'lwc.reference_wire_adapters_record'
+            },
+            {
+                name: 'notifyRecordUpdateAvailable',
+                description:
+                    'Call this function to notify Lightning Data Service that a record has changed outside its mechanisms, such as via imperative Apex or by calling User Interface API via a third-party framework.',
+                docUrlKey: 'lwc.reference_notify_record_update'
             },
             {
                 name: 'updateRecord',
