@@ -1,3 +1,6 @@
 {
-    "extends": ["@salesforce/eslint-config-lwc/recommended"]
+    "extends": ["@salesforce/eslint-config-lwc/recommended"],
+    "rules": {
+        "jest/no-deprecated-functions": "off"
+    }
 }

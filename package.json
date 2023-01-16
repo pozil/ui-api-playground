@@ -4,12 +4,31 @@
     "private": true,
     "description": "UI API Playground",
     "scripts": {
-        "prettier": "prettier --write '**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,yaml,yml}'"
+        "lint": "eslint **/lwc/**/*.js",
+        "prettier": "prettier --write \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,yaml,yml}\"",
+        "prettier:verify": "prettier --check \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,yaml,yml}\"",
+        "postinstall": "husky install",
+        "precommit": "lint-staged"
+    },
+    "lint-staged": {
+        "**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,yaml,yml}": [
+            "prettier --write"
+        ],
+        "**/lwc/**/*.js": [
+            "eslint"
+        ]
     },
     "author": "pozil",
     "license": "CC0-1.0",
     "devDependencies": {
-        "prettier": "^2.8.1",
+        "@lwc/eslint-plugin-lwc": "^1.5.1",
+        "@salesforce/eslint-config-lwc": "^3.3.3",
+        "@salesforce/eslint-plugin-lightning": "^1.0.0",
+        "eslint": "^8.32.0",
+        "eslint-plugin-import": "^2.27.4",
+        "husky": "^8.0.3",
+        "lint-staged": "^13.1.0",
+        "prettier": "^2.8.3",
         "prettier-plugin-apex": "^1.12.0"
     }
 }
