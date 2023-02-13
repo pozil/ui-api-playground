@@ -1,8 +1,6 @@
 import { LightningElement, wire } from 'lwc';
 import { getRecords } from 'lightning/uiRecordApi';
 
-import NAME_FIELD from '@salesforce/schema/Contact.Name';
-
 const API_VARIANT_FIELDS = 'fields';
 const API_VARIANT_MODE_LAYOUT = 'modeAndLayout';
 
@@ -100,7 +98,7 @@ export default class GetRecordUi extends LightningElement {
             .split(',')
             .map((qualifiedFieldName) => {
                 const parts = qualifiedFieldName.split('.');
-                if (parts.length != 2) {
+                if (parts.length !== 2) {
                     throw new Error(
                         `Not a qualified field name: ${qualifiedFieldName}`
                     );

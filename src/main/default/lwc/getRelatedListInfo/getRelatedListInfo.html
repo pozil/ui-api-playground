@@ -21,6 +21,26 @@
             label="Record Type ID"
             field-level-help="The ID of the parent record type. If not provided, the default record type is used."
         ></lightning-input>
+        <lightning-input
+            value={fields}
+            onchange={handleFieldsChange}
+            type="text"
+            label="Fields"
+            field-level-help="Comma-separated list of fields."
+        ></lightning-input>
+        <lightning-input
+            value={optionalFields}
+            onchange={handleOptionalFieldsChange}
+            type="text"
+            label="Optional Fields"
+            field-level-help="Comma-separated list of fields."
+        ></lightning-input>
+        <lightning-input
+            type="checkbox"
+            label="Restrict columns to layout"
+            checked={isRestrictColumnsToLayout}
+            onchange={handleRestrictColumnsToLayoutChange}
+        ></lightning-input>
     </div>
     <div class="slds-m-top_small slds-text-align_right">
         <lightning-button

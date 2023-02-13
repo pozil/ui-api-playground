@@ -47,7 +47,7 @@ export default class GetRelatedListRecordsBatch extends LightningElement {
         this.relatedListParameters.splice(index, 1);
     }
 
-    handleAddItem(event) {
+    handleAddItem() {
         this.relatedListParameters.push({ relatedListId: '', fields: [] });
     }
 
