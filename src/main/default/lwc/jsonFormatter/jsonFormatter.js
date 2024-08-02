@@ -17,7 +17,7 @@ const TREE_GRID_COLUMNS = [
 let nextNodeId = 0;
 function getNewNodeId() {
     nextNodeId++;
-    return nextNodeId;
+    return `id${nextNodeId}`;
 }
 
 export default class JsonFormatter extends LightningElement {
