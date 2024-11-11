@@ -1,18 +1,27 @@
 import { LightningElement } from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
-import { deleteRecord } from 'lightning/uiRecordApi';
+import { deleteListInfo } from 'lightning/uiListsApi';
 
-export default class DeleteRecord extends LightningElement {
-    recordId = '';
+export default class DeleteListInfo extends LightningElement {
+    objectApiName = 'Account';
+    listViewApiName;
 
-    handleRecordIdChange(event) {
-        this.recordId = event.target.value;
+    handleChange(event) {
+        const element = event.target;
+        if (event.detail) {
+            // Dropdown
+            this[element.name] = event.detail.value;
+        } else {
+            // Other inputs
+            this[element.name] = element.value;
+        }
     }
 
     async handleSendRequest() {
         this.dispatchEvent(new CustomEvent('request', { bubbles: true }));
         try {
-            await deleteRecord(this.recordId);
+            const { objectApiName, listViewApiName } = this;
+            await deleteListInfo({ objectApiName, listViewApiName });
             this.dispatchEvent(
                 new CustomEvent('response', {
                     detail: undefined,
@@ -22,7 +31,7 @@ export default class DeleteRecord extends LightningElement {
             this.dispatchEvent(
                 new ShowToastEvent({
                     title: 'Success',
-                    message: 'Record deleted',
+                    message: 'List view deleted',
                     variant: 'success'
                 })
             );
@@ -37,6 +46,6 @@ export default class DeleteRecord extends LightningElement {
     }
 
     get isCallApiButtonDisabled() {
-        return !this.recordId;
+        return !(this.objectApiName && this.listViewApiName);
     }
 }

@@ -1,0 +1,82 @@
+<template>
+    <div class="slds-form">
+        <lightning-input
+            name="objectApiName"
+            value={objectApiName}
+            onchange={handleChange}
+            type="text"
+            label="Object API Name"
+            required
+        ></lightning-input>
+        <lightning-input
+            name="listViewApiName"
+            value={listViewApiName}
+            onchange={handleChange}
+            type="text"
+            label="List View API Name"
+            required
+        ></lightning-input>
+        <lightning-input
+            name="label"
+            value={label}
+            onchange={handleChange}
+            type="text"
+            label="Label"
+            field-level-help="The list's display label."
+        ></lightning-input>
+        <lightning-combobox
+            name="visibility"
+            label="Visibility"
+            value={visibility}
+            options={visibilityOptions}
+            onchange={handleChange}
+            field-level-help="The list's level of visibility."
+        ></lightning-combobox>
+        <lightning-textarea
+            lwc:if={isSharedVisibility}
+            name="listShares"
+            value={listShares}
+            onchange={handleJsonInputChange}
+            label="List Shares"
+            field-level-help="Objects that the list is shared with."
+        ></lightning-textarea>
+        <lightning-input
+            name="displayColumns"
+            value={displayColumns}
+            onchange={handleChange}
+            type="text"
+            label="Display Columns"
+            field-level-help="A comma-delimited list of display columns (field API names) for the list."
+        ></lightning-input>
+        <lightning-textarea
+            name="filteredByInfo"
+            value={filteredByInfo}
+            onchange={handleJsonInputChange}
+            label="Filtered By Info"
+            field-level-help="Filtering information for the list as JSON. See 'List Filter By Info Input' from the documentation."
+        ></lightning-textarea>
+        <lightning-input
+            name="filterLogicString"
+            value={filterLogicString}
+            onchange={handleChange}
+            type="text"
+            label="Filter Logic String"
+            field-level-help="The filter logic string, such as (1 OR 2) and 3. Indexes start with 1."
+        ></lightning-input>
+        <lightning-textarea
+            name="scope"
+            value={scope}
+            onchange={handleJsonInputChange}
+            label="Scope"
+            field-level-help="Scope information for the list as JSON. See 'List Scope Input' from the documentation."
+        ></lightning-textarea>
+    </div>
+    <div class="slds-m-top_small slds-text-align_right">
+        <lightning-button
+            variant="brand"
+            label="Send"
+            onclick={handleSendRequest}
+            disabled={isCallApiButtonDisabled}
+        ></lightning-button>
+    </div>
+</template>

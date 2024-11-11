@@ -12,8 +12,29 @@ const API_DEFINITIONS = [
         ]
     },
     {
+        name: 'uiLayoutApi',
+        endpoints: [
+            {
+                name: 'getLayout',
+                description:
+                    'Gets layout information, metadata, and data to build UI for one or more records.',
+                docUrlKey: 'lwc.reference_get_layout'
+            }
+        ]
+    },
+    {
         name: 'uiListsApi',
         endpoints: [
+            {
+                name: 'createListInfo',
+                description: 'Create a list view associated with an object.',
+                docUrlKey: 'lwc.reference_create_list_info'
+            },
+            {
+                name: 'deleteListInfo',
+                description: 'Delete a list view.',
+                docUrlKey: 'lwc.reference_delete_list_info'
+            },
             {
                 name: 'getListInfoByName',
                 description:
@@ -25,6 +46,36 @@ const API_DEFINITIONS = [
                 description:
                     'Use this wire adapter to get the metadata for a batch of list views.',
                 docUrlKey: 'lwc.reference_get_list_infos_by_name'
+            },
+            {
+                name: 'getListInfosByObjectName',
+                description: 'Get the list views associated with an object.',
+                docUrlKey: 'lwc.reference_get_list_infos_by_object_name'
+            },
+            {
+                name: 'getListObjectInfo',
+                description: 'Get the metadata for a list view object.',
+                docUrlKey: 'lwc.reference_get_list_object_info'
+            },
+            {
+                name: 'getListPreferences',
+                description: 'Get the preferences for a list view.',
+                docUrlKey: 'lwc.reference_get_list_preferences'
+            },
+            {
+                name: 'getListRecordsByName',
+                description: 'Get record data for a list view.',
+                docUrlKey: 'lwc.reference_get_list_records_by_name'
+            },
+            {
+                name: 'updateListInfoByName',
+                description: 'Update a list view’s metadata.',
+                docUrlKey: 'lwc.reference_update_list_info_by_name'
+            },
+            {
+                name: 'updateListPreferences',
+                description: 'Update the preferences for a list view.',
+                docUrlKey: 'lwc.reference_update_list_preferences'
             }
         ]
     },
@@ -140,7 +191,7 @@ const API_DEFINITIONS = [
                 name: 'getRecordUi',
                 status: 'Deprecated',
                 description:
-                    '[DEPRECATED] Use this wire adapter to get layout information, metadata, and data to build UI for one or more records.',
+                    '[DEPRECATED] Use this wire adapter to get layout information, metadata, and data to build UI for one or more records. To create a UI for working with records, use the getLayout wire adapter instead.',
                 docUrlKey: 'lwc.reference_wire_adapters_record'
             },
             {

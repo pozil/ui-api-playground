@@ -1,0 +1,88 @@
+<template>
+    <div class="slds-form">
+        <lightning-input
+            name="objectApiName"
+            value={objectApiName}
+            onchange={handleChange}
+            type="text"
+            label="Object API Name"
+            required
+        ></lightning-input>
+        <lightning-input
+            name="listViewApiName"
+            value={listViewApiName}
+            onchange={handleChange}
+            type="text"
+            label="List View API Name"
+            required
+        ></lightning-input>
+        <lightning-input
+            name="fields"
+            value={fields}
+            onchange={handleChange}
+            type="text"
+            label="Fields"
+            field-level-help="Additional fields queried for the records returned. These fields don't create visible columns. If the field isn't available to the user, an error occurs."
+        ></lightning-input>
+        <lightning-input
+            name="optionalFields"
+            value={optionalFields}
+            onchange={handleChange}
+            type="text"
+            label="Optional Fields"
+            field-level-help="Additional fields queried for the records returned. These fields don’t create visible columns. If the field isn’t available to the user, no error occurs and the field isn’t included in the records."
+        ></lightning-input>
+        <lightning-input
+            name="searchTerm"
+            value={searchTerm}
+            onchange={handleChange}
+            type="text"
+            label="Search Term"
+            field-level-help="A search term to filter the results. Wildcards are supported."
+        ></lightning-input>
+        <lightning-input
+            name="sortBy"
+            value={sortBy}
+            onchange={handleChange}
+            type="text"
+            label="Sort By"
+            field-level-help="Qualified API name of the field the list view is sorted by. If the name is preceded with -, the sort order is descending."
+        ></lightning-input>
+        <lightning-input
+            name="pageSize"
+            value={pageSize}
+            onchange={handleChange}
+            type="number"
+            min="1"
+            max="2000"
+            label="Page Size"
+            field-level-help="The number of list records viewed at one time. The default value is 50. Valid values are 1—2000."
+        ></lightning-input>
+        <lightning-input
+            name="where"
+            value={where}
+            onchange={handleChange}
+            type="text"
+            label="Where"
+            field-level-help="The filter applied to returned records, in GraphQL syntax."
+        ></lightning-input>
+        <lightning-input
+            name="pageToken"
+            value={pageToken}
+            onchange={handleChange}
+            type="number"
+            min="0"
+            max="2000"
+            label="Page Token"
+            field-level-help="A token that represents the page offset. To indicate where the page starts, use this value with the pageSize parameter. The maximum offset is 2000 and the default is 0."
+        ></lightning-input>
+    </div>
+    <div class="slds-m-top_small slds-text-align_right">
+        <lightning-button
+            variant="brand"
+            label="Send"
+            onclick={handleSendRequest}
+            disabled={isCallApiButtonDisabled}
+        ></lightning-button>
+    </div>
+</template>

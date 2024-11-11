@@ -1,0 +1,44 @@
+<template>
+    <div class="slds-form">
+        <lightning-input
+            name="objectApiName"
+            value={objectApiName}
+            onchange={handleChange}
+            type="text"
+            label="Object API Name"
+            required
+        ></lightning-input>
+        <lightning-combobox
+            name="layoutType"
+            label="Layout Type"
+            value={layoutType}
+            options={layoutTypeOptions}
+            onchange={handleChange}
+            required
+        ></lightning-combobox>
+        <lightning-combobox
+            name="mode"
+            label="Mode"
+            value={mode}
+            options={modeOptions}
+            onchange={handleChange}
+            required
+        ></lightning-combobox>
+        <lightning-input
+            name="recordTypeId"
+            value={recordTypeId}
+            onchange={handleChange}
+            type="text"
+            label="Record Type Id"
+            min-length="15"
+        ></lightning-input>
+    </div>
+    <div class="slds-m-top_small slds-text-align_right">
+        <lightning-button
+            variant="brand"
+            label="Send"
+            onclick={handleSendRequest}
+            disabled={isCallApiButtonDisabled}
+        ></lightning-button>
+    </div>
+</template>
