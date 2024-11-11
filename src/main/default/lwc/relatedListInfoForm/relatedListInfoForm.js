@@ -16,12 +16,15 @@ export default class RelatedListInfoForm extends LightningElement {
     relatedListId;
     fieldsString;
 
-    handleRelatedListIdChange(event) {
-        this.relatedListId = event.target.value;
-    }
-
-    handleFieldsChange(event) {
-        this.fieldsString = event.target.value;
+    handleChange(event) {
+        const element = event.target;
+        if (event.detail) {
+            // Dropdown
+            this[element.name] = event.detail.value;
+        } else {
+            // Other inputs
+            this[element.name] = element.value;
+        }
     }
 
     handleRemove() {

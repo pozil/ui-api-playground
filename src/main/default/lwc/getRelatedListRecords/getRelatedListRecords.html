@@ -1,22 +1,25 @@
 <template>
     <div class="slds-form">
         <lightning-input
+            name="parentRecordId"
             value={parentRecordId}
-            onchange={handleParentRecordIdChange}
+            onchange={handleChange}
             type="text"
             label="Parent Record ID"
             required
         ></lightning-input>
         <lightning-input
+            name="relatedListId"
             value={relatedListId}
-            onchange={handleRelatedListIdChange}
+            onchange={handleChange}
             type="text"
             label="Related List ID"
             required
         ></lightning-input>
         <lightning-input
+            name="fields"
             value={fields}
-            onchange={handleFieldsChange}
+            onchange={handleChange}
             type="text"
             label="Fields"
             required

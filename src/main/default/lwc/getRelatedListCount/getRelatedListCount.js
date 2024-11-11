@@ -21,12 +21,15 @@ export default class GetRelatedListRecords extends LightningElement {
         );
     }
 
-    handleParentRecordIdChange(event) {
-        this.parentRecordId = event.target.value;
-    }
-
-    handleRelatedListIdChange(event) {
-        this.relatedListId = event.target.value;
+    handleChange(event) {
+        const element = event.target;
+        if (event.detail) {
+            // Dropdown
+            this[element.name] = event.detail.value;
+        } else {
+            // Other inputs
+            this[element.name] = element.value;
+        }
     }
 
     handleSendRequest() {

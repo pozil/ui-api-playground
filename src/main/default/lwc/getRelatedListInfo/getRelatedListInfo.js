@@ -33,24 +33,15 @@ export default class GetRelatedListInfo extends LightningElement {
         );
     }
 
-    handleParentObjectApiNameChange(event) {
-        this.parentObjectApiName = event.target.value;
-    }
-
-    handleRelatedListIdChange(event) {
-        this.relatedListId = event.target.value;
-    }
-
-    handleRecordTypeIdChange(event) {
-        this.recordTypeId = event.target.value;
-    }
-
-    handleFieldsChange(event) {
-        this.fields = event.target.value;
-    }
-
-    handleOptionalFieldsChange(event) {
-        this.optionalFields = event.target.value;
+    handleChange(event) {
+        const element = event.target;
+        if (event.detail) {
+            // Dropdown
+            this[element.name] = event.detail.value;
+        } else {
+            // Other inputs
+            this[element.name] = element.value;
+        }
     }
 
     handleRestrictColumnsToLayoutChange(event) {

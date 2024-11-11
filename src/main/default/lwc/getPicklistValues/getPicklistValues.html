@@ -1,8 +1,9 @@
 <template>
     <div class="slds-form">
         <lightning-input
+            name="recordTypeId"
             value={recordTypeId}
-            onchange={handleRecordTypeIdChange}
+            onchange={handleChange}
             type="text"
             label="Record Type Id"
             min-length="15"
@@ -10,8 +11,9 @@
             required
         ></lightning-input>
         <lightning-input
+            name="fieldApiName"
             value={fieldApiName}
-            onchange={handleFieldApiNameChange}
+            onchange={handleChange}
             type="text"
             label="Field API Name"
             field-level-help="Field API name prefixed with the object API name like 'Account.Rating'."

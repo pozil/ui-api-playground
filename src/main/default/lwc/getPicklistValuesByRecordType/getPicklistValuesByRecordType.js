@@ -20,12 +20,15 @@ export default class GetPicklistValuesByRecordType extends LightningElement {
         );
     }
 
-    handleObjectApiNameChange(event) {
-        this.objectApiName = event.target.value;
-    }
-
-    handleRecordTypeIdChange(event) {
-        this.recordTypeId = event.target.value;
+    handleChange(event) {
+        const element = event.target;
+        if (event.detail) {
+            // Dropdown
+            this[element.name] = event.detail.value;
+        } else {
+            // Other inputs
+            this[element.name] = element.value;
+        }
     }
 
     handleSendRequest() {

@@ -1,8 +1,9 @@
 <template>
     <div class="slds-form">
         <lightning-input
+            name="parentRecordId"
             value={parentRecordId}
-            onchange={handleParentRecordIdChange}
+            onchange={handleChange}
             type="text"
             label="Parent Record ID"
             class="slds-m-bottom_medium"

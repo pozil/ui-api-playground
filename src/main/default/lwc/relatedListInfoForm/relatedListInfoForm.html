@@ -2,15 +2,17 @@
     <div class="slds-m-bottom_medium slds-grid">
         <div class="slds-col">
             <lightning-input
+                name="relatedListId"
                 value={relatedListId}
-                onchange={handleRelatedListIdChange}
+                onchange={handleChange}
                 type="text"
                 label="Related List ID"
                 required
             ></lightning-input>
             <lightning-input
+                name="fieldsString"
                 value={fieldsString}
-                onchange={handleFieldsChange}
+                onchange={handleChange}
                 type="text"
                 label="Fields"
                 required
