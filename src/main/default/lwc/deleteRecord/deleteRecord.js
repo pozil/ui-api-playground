@@ -2,7 +2,7 @@ import { LightningElement } from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import { deleteRecord } from 'lightning/uiRecordApi';
 
-export default class GetRecordUi extends LightningElement {
+export default class DeleteRecord extends LightningElement {
     recordId = '';
 
     handleRecordIdChange(event) {

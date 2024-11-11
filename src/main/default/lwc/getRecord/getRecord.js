@@ -47,8 +47,15 @@ export default class GetRecordUi extends LightningElement {
         );
     }
 
-    handleRecordIdChange(event) {
-        this.recordId = event.target.value;
+    handleChange(event) {
+        const element = event.target;
+        if (event.detail) {
+            // Dropdown
+            this[element.name] = event.detail.value;
+        } else {
+            // Other inputs
+            this[element.name] = element.value;
+        }
     }
 
     handleApiVariantChange(event) {
@@ -59,22 +66,6 @@ export default class GetRecordUi extends LightningElement {
         } else {
             this.fieldsFinal = undefined;
         }
-    }
-
-    handleFieldsChange(event) {
-        this.fields = event.target.value;
-    }
-
-    handleLayoutTypeChange(event) {
-        this.layoutTypes = event.detail.value;
-    }
-
-    handleModeChange(event) {
-        this.modes = event.detail.value;
-    }
-
-    handleOptionalFieldChange(event) {
-        this.optionalFields = event.detail.value;
     }
 
     handleSendRequest() {

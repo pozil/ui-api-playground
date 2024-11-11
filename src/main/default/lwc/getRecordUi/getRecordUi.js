@@ -27,20 +27,15 @@ export default class GetRecordUi extends LightningElement {
         );
     }
 
-    handleRecordIdsChange(event) {
-        this.recordIds = event.detail.value;
-    }
-
-    handleLayoutTypeChange(event) {
-        this.layoutTypes = event.detail.value;
-    }
-
-    handleModeChange(event) {
-        this.modes = event.detail.value;
-    }
-
-    handleOptionalFieldChange(event) {
-        this.optionalFields = event.detail.value;
+    handleChange(event) {
+        const element = event.target;
+        if (event.detail) {
+            // Dropdown
+            this[element.name] = event.detail.value;
+        } else {
+            // Other inputs
+            this[element.name] = element.value;
+        }
     }
 
     handleSendRequest() {

@@ -32,13 +32,56 @@
                     description={selectedEndpoint.description}
                     doc-url-key={selectedEndpoint.docUrlKey}
                 >
-                    <c-get-list-ui lwc:if={isGetListUi}></c-get-list-ui>
+                    <c-create-list-info
+                        lwc:if={isCreateListInfo}
+                    ></c-create-list-info>
+                    <c-create-record
+                        lwc:elseif={isCreateRecord}
+                    ></c-create-record>
+                    <c-create-record-input-filtered-by-edited-fields
+                        lwc:elseif={isCreateRecordInputFilteredByEditedFields}
+                    ></c-create-record-input-filtered-by-edited-fields>
+                    <c-delete-record
+                        lwc:elseif={isDeleteRecord}
+                    ></c-delete-record>
+                    <c-delete-list-info
+                        lwc:elseif={isDeleteListInfo}
+                    ></c-delete-list-info>
+                    <c-generate-record-input-for-create
+                        lwc:elseif={isGenerateRecordInputForCreate}
+                    ></c-generate-record-input-for-create>
+                    <c-generate-record-input-for-update
+                        lwc:elseif={isGenerateRecordInputForUpdate}
+                    ></c-generate-record-input-for-update>
+                    <c-get-field-display-value
+                        lwc:elseif={isGetFieldDisplayValue}
+                    ></c-get-field-display-value>
+                    <c-get-field-value
+                        lwc:elseif={isGetFieldValue}
+                    ></c-get-field-value>
+                    <c-get-layout lwc:elseif={isGetLayout}></c-get-layout>
                     <c-get-list-info-by-name
                         lwc:elseif={isGetListInfoByName}
                     ></c-get-list-info-by-name>
                     <c-get-list-infos-by-name
                         lwc:elseif={isGetListInfosByName}
                     ></c-get-list-infos-by-name>
+                    <c-get-list-infos-by-object-name
+                        lwc:elseif={isGetListInfosByObjectName}
+                    ></c-get-list-infos-by-object-name>
+                    <c-get-list-object-info
+                        lwc:elseif={isGetListObjectInfo}
+                    ></c-get-list-object-info>
+                    <c-get-list-preferences
+                        lwc:elseif={isGetListPreferences}
+                    ></c-get-list-preferences>
+                    <c-get-list-records-by-name
+                        lwc:elseif={isGetListRecordsByName}
+                    ></c-get-list-records-by-name>
+                    <c-get-list-ui lwc:elseif={isGetListUi}></c-get-list-ui>
+                    <c-get-nav-items
+                        lwc:elseif={isGetNavItems}
+                    ></c-get-nav-items>
                     <c-get-object-info
                         lwc:elseif={isGetObjectInfo}
                     ></c-get-object-info>
@@ -51,65 +94,47 @@
                     <c-get-picklist-values-by-record-type
                         lwc:elseif={isGetPicklistValuesByRecordType}
                     ></c-get-picklist-values-by-record-type>
-                    <c-create-record
-                        lwc:elseif={isCreateRecord}
-                    ></c-create-record>
-                    <c-create-record-input-filtered-by-edited-fields
-                        lwc:elseif={isCreateRecordInputFilteredByEditedFields}
-                    ></c-create-record-input-filtered-by-edited-fields>
-                    <c-delete-record
-                        lwc:elseif={isDeleteRecord}
-                    ></c-delete-record>
-                    <c-generate-record-input-for-create
-                        lwc:elseif={isGenerateRecordInputForCreate}
-                    ></c-generate-record-input-for-create>
-                    <c-generate-record-input-for-update
-                        lwc:elseif={isGenerateRecordInputForUpdate}
-                    ></c-generate-record-input-for-update>
-                    <c-get-field-value
-                        lwc:elseif={isGetFieldValue}
-                    ></c-get-field-value>
-                    <c-get-field-display-value
-                        lwc:elseif={isGetFieldDisplayValue}
-                    ></c-get-field-display-value>
                     <c-get-record lwc:elseif={isGetRecord}></c-get-record>
-                    <c-get-records lwc:elseif={isGetRecords}></c-get-records>
                     <c-get-record-create-defaults
                         lwc:elseif={isGetRecordCreateDefaults}
                     ></c-get-record-create-defaults>
                     <c-get-record-notify-change
                         lwc:elseif={isGetRecordNotifyChange}
                     ></c-get-record-notify-change>
+                    <c-get-records lwc:elseif={isGetRecords}></c-get-records>
                     <c-get-record-ui
                         lwc:elseif={isGetRecordUi}
                     ></c-get-record-ui>
-                    <c-notify-record-update-available
-                        lwc:elseif={isNotifyRecordUpdateAvailable}
-                    ></c-notify-record-update-available>
-                    <c-update-record
-                        lwc:elseif={isUpdateRecord}
-                    ></c-update-record>
-                    <c-get-nav-items
-                        lwc:elseif={isGetNavItems}
-                    ></c-get-nav-items>
-                    <c-get-related-list-records
-                        lwc:elseif={isGetRelatedListRecords}
-                    ></c-get-related-list-records>
-                    <c-get-related-list-records-batch
-                        lwc:elseif={isGetRelatedListRecordsBatch}
-                    ></c-get-related-list-records-batch>
+                    <c-get-related-list-count
+                        lwc:elseif={isGetRelatedListCount}
+                    ></c-get-related-list-count>
                     <c-get-related-list-info
                         lwc:elseif={isGetRelatedListInfo}
                     ></c-get-related-list-info>
                     <c-get-related-list-info-batch
                         lwc:elseif={isGetRelatedListInfoBatch}
                     ></c-get-related-list-info-batch>
+                    <c-get-related-list-records
+                        lwc:elseif={isGetRelatedListRecords}
+                    ></c-get-related-list-records>
+                    <c-get-related-list-records-batch
+                        lwc:elseif={isGetRelatedListRecordsBatch}
+                    ></c-get-related-list-records-batch>
                     <c-get-related-lists-info
                         lwc:elseif={isGetRelatedListsInfo}
                     ></c-get-related-lists-info>
-                    <c-get-related-list-count
-                        lwc:elseif={isGetRelatedListCount}
-                    ></c-get-related-list-count>
+                    <c-notify-record-update-available
+                        lwc:elseif={isNotifyRecordUpdateAvailable}
+                    ></c-notify-record-update-available>
+                    <c-update-list-info-by-name
+                        lwc:elseif={isUpdateListInfoByName}
+                    ></c-update-list-info-by-name>
+                    <c-update-list-preferences
+                        lwc:elseif={isUpdateListPreferences}
+                    ></c-update-list-preferences>
+                    <c-update-record
+                        lwc:elseif={isUpdateRecord}
+                    ></c-update-record>
                     <template lwc:else>
                         <p class="slds-text-color_destructive">
                             Error: unknown action {selectedEndpoint.name}

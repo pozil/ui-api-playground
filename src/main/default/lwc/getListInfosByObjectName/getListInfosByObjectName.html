@@ -1,0 +1,53 @@
+<template>
+    <div class="slds-form">
+        <lightning-input
+            name="objectApiName"
+            value={objectApiName}
+            onchange={handleChange}
+            type="text"
+            label="Object API Name"
+            required
+        ></lightning-input>
+        <lightning-input
+            value={pageSize}
+            name="pageSize"
+            onchange={handleChange}
+            min="1"
+            max="2000"
+            type="number"
+            label="Page size"
+            field-level-help="The number of list records viewed at one time."
+        ></lightning-input>
+        <lightning-input
+            name="pageToken"
+            value={pageToken}
+            onchange={handleChange}
+            type="text"
+            label="Page Token"
+            field-level-help="A token that represents the page offset. To indicate where the page starts, use this value with the pageSize parameter. The maximum offset is 2000, and the default is 0."
+        ></lightning-input>
+        <lightning-input
+            name="q"
+            value={q}
+            onchange={handleChange}
+            type="text"
+            label="Search Term"
+            field-level-help="A search term to filter the results. Wildcards are supported."
+        ></lightning-input>
+        <lightning-input
+            name="recentListsOnly"
+            type="checkbox"
+            label="Recent Lists Only"
+            checked={recentListsOnly}
+            onchange={handleChange}
+        ></lightning-input>
+    </div>
+    <div class="slds-m-top_small slds-text-align_right">
+        <lightning-button
+            variant="brand"
+            label="Send"
+            onclick={handleSendRequest}
+            disabled={isCallApiButtonDisabled}
+        ></lightning-button>
+    </div>
+</template>

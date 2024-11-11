@@ -19,30 +19,34 @@
         </div>
 
         <lightning-input
+            name="recordIds"
             value={recordIds}
-            onchange={handleRecordIdsChange}
+            onchange={handleChange}
             type="text"
             label="Record Id"
             min-length="15"
             required
         ></lightning-input>
         <lightning-combobox
+            name="layoutTypes"
             label="Layout type"
             value={layoutTypes}
             options={layoutTypeOptions}
-            onchange={handleLayoutTypeChange}
+            onchange={handleChange}
             required
         ></lightning-combobox>
         <lightning-combobox
+            name="modes"
             label="Mode"
             value={modes}
             options={modeOptions}
-            onchange={handleModeChange}
+            onchange={handleChange}
             required
         ></lightning-combobox>
         <lightning-input
+            name="optionalFields"
             value={optionalFields}
-            onchange={handleOptionalFieldChange}
+            onchange={handleChange}
             type="text"
             label="Optional field"
             field-level-help="Field API name prefixed with the object API name like 'Account.Rating'."

@@ -1,36 +1,41 @@
 <template>
     <div class="slds-form">
         <lightning-input
+            name="parentObjectApiName"
             value={parentObjectApiName}
-            onchange={handleParentObjectApiNameChange}
+            onchange={handleChange}
             type="text"
             label="Parent Object API Name"
             required
         ></lightning-input>
         <lightning-input
+            name="relatedListId"
             value={relatedListId}
-            onchange={handleRelatedListIdChange}
+            onchange={handleChange}
             type="text"
             label="Related List ID"
             required
         ></lightning-input>
         <lightning-input
+            name="recordTypeId"
             value={recordTypeId}
-            onchange={handleRecordTypeIdChange}
+            onchange={handleChange}
             type="text"
             label="Record Type ID"
             field-level-help="The ID of the parent record type. If not provided, the default record type is used."
         ></lightning-input>
         <lightning-input
+            name="fields"
             value={fields}
-            onchange={handleFieldsChange}
+            onchange={handleChange}
             type="text"
             label="Fields"
             field-level-help="Comma-separated list of fields."
         ></lightning-input>
         <lightning-input
+            name="optionalFields"
             value={optionalFields}
-            onchange={handleOptionalFieldsChange}
+            onchange={handleChange}
             type="text"
             label="Optional Fields"
             field-level-help="Comma-separated list of fields."

@@ -1,0 +1,49 @@
+<template>
+    <div class="slds-form">
+        <lightning-input
+            name="objectApiName"
+            value={objectApiName}
+            onchange={handleChange}
+            type="text"
+            label="Object API Name"
+            required
+        ></lightning-input>
+        <lightning-input
+            name="listViewApiName"
+            value={listViewApiName}
+            onchange={handleChange}
+            type="text"
+            label="List View API Name"
+            required
+        ></lightning-input>
+        <lightning-textarea
+            name="columnWidths"
+            value={columnWidths}
+            onchange={handleJsonInputChange}
+            label="Column Widths"
+            field-level-help="Column width preferences to update as Map<String, Integer> where the string the API name of the field matching the column."
+        ></lightning-textarea>
+        <lightning-textarea
+            name="columnWrap"
+            value={columnWrap}
+            onchange={handleJsonInputChange}
+            label="Column Wrap"
+            field-level-help="Column wrap preferences to update as Map<String, Integer> where the string the API name of the field matching the column."
+        ></lightning-textarea>
+        <lightning-textarea
+            name="orderedBy"
+            value={orderedBy}
+            onchange={handleJsonInputChange}
+            label="Ordered By"
+            field-level-help="Ordering preferences to update as [{ fieldApiName: String, isAscending: Boolean }]."
+        ></lightning-textarea>
+    </div>
+    <div class="slds-m-top_small slds-text-align_right">
+        <lightning-button
+            variant="brand"
+            label="Send"
+            onclick={handleSendRequest}
+            disabled={isCallApiButtonDisabled}
+        ></lightning-button>
+    </div>
+</template>

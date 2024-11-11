@@ -1,15 +1,17 @@
 <template>
     <div class="slds-form">
         <lightning-input
+            name="objectApiName"
             value={objectApiName}
-            onchange={handleObjectApiNameChange}
+            onchange={handleChange}
             type="text"
             label="Object API Name"
             required
         ></lightning-input>
         <lightning-input
+            name="listViewApiName"
             value={listViewApiName}
-            onchange={handleListViewApiNameChange}
+            onchange={handleChange}
             type="text"
             label="List View API Name"
             field-level-help="Leave this field empty to retrieve all list views"

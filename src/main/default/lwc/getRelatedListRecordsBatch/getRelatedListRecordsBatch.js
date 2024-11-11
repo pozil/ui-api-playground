@@ -31,12 +31,15 @@ export default class GetRelatedListRecordsBatch extends LightningElement {
         );
     }
 
-    handleParentRecordIdChange(event) {
-        this.parentRecordId = event.target.value;
-    }
-
-    handleRelatedListParametersChange(event) {
-        this.relatedListParameters = event.target.value;
+    handleChange(event) {
+        const element = event.target;
+        if (event.detail) {
+            // Dropdown
+            this[element.name] = event.detail.value;
+        } else {
+            // Other inputs
+            this[element.name] = element.value;
+        }
     }
 
     handleRemoveItem(event) {

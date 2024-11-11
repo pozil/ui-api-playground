@@ -1,16 +1,18 @@
 <template>
     <div class="slds-form">
         <lightning-input
+            name="objectApiName"
             value={objectApiName}
-            onchange={handleObjectApiNameChange}
+            onchange={handleChange}
             type="text"
             label="Object API Name"
             min-length="15"
             required
         ></lightning-input>
         <lightning-input
+            name="recordTypeId"
             value={recordTypeId}
-            onchange={handleRecordTypeIdChange}
+            onchange={handleChange}
             type="text"
             label="Record Type Id"
             field-level-help="Use the Object Info 'defaultRecordTypeId' property, which is returned from 'getObjectInfo' or 'getRecordUi'."
