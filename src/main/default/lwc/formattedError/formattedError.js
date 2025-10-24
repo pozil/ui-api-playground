@@ -7,7 +7,6 @@ export default class Error extends LightningElement {
     @api
     set error(rawError) {
         this.rawError = rawError;
-        // eslint-disable-next-line no-console
         console.error(JSON.stringify(rawError));
         this.formattedError = this.reduceErrors(rawError);
     }
